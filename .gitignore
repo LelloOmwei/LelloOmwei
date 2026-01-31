@@ -1,0 +1,12 @@
+# Binárky a spustiteľné súbory
+history.ow
+*.exe
+*.bin
+/target/
+/cmd/gateway/gateway
+
+# OS smeti
+.DS_Store
+
+# Go závislosti
+vendor/

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <title>OM-WEI Dashboard</title>
+    <style>
+        body { background: #0f0f0f; color: #00ff00; font-family: 'Courier New', monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        #monitor { border: 1px solid #00ff00; padding: 40px; box-shadow: 0 0 20px rgba(0, 255, 0, 0.2); text-align: center; max-width: 600px; }
+        .signal { font-size: 1.5em; margin: 20px 0; padding: 10px; border-radius: 4px; }
+        .konesuhladne { background: rgba(0, 255, 0, 0.1); border: 1px solid #00ff00; color: #00ff00; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { opacity: 0.8; } 50% { opacity: 1; } 100% { opacity: 0.8; } }
+        .history { color: #888; font-size: 0.8em; text-align: left; margin-top: 20px; border-top: 1px dashed #444; padding-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div id="monitor">
+    <h1>🏛️ OM-WEI CORE</h1>
+    <div id="status-box" class="signal">Čakám na prvý vryp...</div>
+    <div id="history-box" class="history"></div>
+</div>
+
+<script>
+    async function updateDashboard() {
+        try {
+            const response = await fetch('http://localhost:8080/history');
+            const data = await response.text();
+            const lines = data.trim().split('\n').filter(l => l.length > 0);
+            
+            if (lines.length > 0) {
+                const lastLine = lines[lines.length - 1];
+                const statusBox = document.getElementById('status-box');
+                const historyBox = document.getElementById('history-box');
+
+                if (lastLine.includes('konesuhladne')) {
+                    statusBox.innerHTML = "🐎 KONESÚHLADNE.ow";
+                    statusBox.className = "signal konesuhladne";
+                } else {
+                    statusBox.innerText = "📥 Príjem signálu...";
+                    statusBox.className = "signal";
+                }
+
+                // Zobrazíme posledných 5 záznamov
+                historyBox.innerHTML = lines.slice(-5).reverse().join('<br>');
+            }
+        } catch (err) {
+            document.getElementById('status-box').innerText = "❌ Brána Offline";
+        }
+    }
+
+    setInterval(updateDashboard, 1000);
+</script>
+
+</body>
+</html>
