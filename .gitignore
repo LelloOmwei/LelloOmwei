@@ -4,6 +4,7 @@ history.ow
 *.bin
 /target/
 /cmd/gateway/gateway
+omwei-rust/target/
 
 # OS smeti
 .DS_Store
