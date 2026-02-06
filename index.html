@@ -21,6 +21,7 @@
         .border-glow:hover {
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
+        input::placeholder { color: rgba(255, 255, 255, 0.2); }
     </style>
 </head>
 <body class="antialiased">
@@ -44,13 +45,24 @@
         <p class="text-xl md:text-2xl max-w-2xl opacity-60 leading-relaxed mb-12">
             Eliminating data hallucinations at the transistor level. Building the Hardware Root of Trust for a verifiable digital economy.
         </p>
-        <div class="flex flex-col md:flex-row gap-4">
-            <a href="mailto:office@omwei.tech" class="bg-white text-black px-8 py-4 rounded-sm font-semibold hover:bg-neutral-200 transition text-center">
-                Request Technical Manifesto
-            </a>
-            <div class="px-8 py-4 mono text-sm flex items-center justify-center border border-white/10 italic">
-                RTL Validation Phase: 2026.1
-            </div>
+        
+        <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" class="flex flex-col md:flex-row gap-4 max-w-2xl">
+            <input type="hidden" name="_subject" value="Contact Inquiry from OMWEI.tech">
+            <input 
+                type="email" 
+                name="email" 
+                placeholder="Secure Contact Email" 
+                required 
+                class="bg-neutral-900 border border-white/10 px-6 py-4 rounded-sm focus:outline-none focus:border-white/40 transition text-sm flex-grow mono"
+            >
+            <button type="submit" class="bg-neutral-100 text-black px-10 py-4 rounded-sm font-bold hover:bg-white transition text-center uppercase text-xs tracking-widest">
+                Submit Inquiry
+            </button>
+        </form>
+        <div class="mt-6 flex items-center space-x-4 opacity-30 mono text-[10px] uppercase tracking-[0.2em]">
+            <span>RTL Validation: 2026.02</span>
+            <span>•</span>
+            <span>ARM v9.3-A/M Architecture</span>
         </div>
     </header>
 
@@ -102,8 +114,7 @@
                 &copy; 2026 OMWEI TECHNOLOGIES. BRATISLAVA, SK.
             </div>
             <div class="flex space-x-6">
-                <a href="mailto:office@omwei.tech" class="hover:underline">Contact</a>
-                <span>Stealth ID: 16-VDA-ARM</span>
+                <span class="mono text-xs uppercase">Stealth ID: 16-VDA-ARM</span>
             </div>
         </div>
     </footer>
