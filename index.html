@@ -22,6 +22,8 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
         input::placeholder { color: rgba(255, 255, 255, 0.2); }
+        .fade-in { animation: fadeIn 0.8s ease-in forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body class="antialiased">
@@ -46,30 +48,39 @@
             Eliminating data hallucinations at the transistor level. Building the Hardware Root of Trust for a verifiable digital economy.
         </p>
         
-        <form action="https://formspree.io/f/xkovnwkk" method="POST" class="flex flex-col md:flex-row gap-4 max-w-2xl">
-            <input type="hidden" name="_subject" value="New Technical Inquiry - OMWEI.tech">
-            
-            <input 
-                type="email" 
-                name="email" 
-                placeholder="Secure Contact Email" 
-                required 
-                class="bg-neutral-900 border border-white/10 px-6 py-4 rounded-sm focus:outline-none focus:border-white/40 transition text-sm flex-grow mono"
-            >
-            <button type="submit" class="bg-neutral-100 text-black px-10 py-4 rounded-sm font-bold hover:bg-white transition text-center uppercase text-xs tracking-widest">
-                Submit Inquiry
-            </button>
-        </form>
+        <div id="contact-container">
+            <form id="omwei-form" action="https://formspree.io/f/xkovnwkk" method="POST" class="flex flex-col md:flex-row gap-4 max-w-2xl">
+                <input type="hidden" name="_subject" value="New Technical Inquiry - OMWEI.tech">
+                
+                <input 
+                    type="email" 
+                    name="email" 
+                    placeholder="Secure Contact Email" 
+                    required 
+                    class="bg-neutral-900 border border-white/10 px-6 py-4 rounded-sm focus:outline-none focus:border-white/40 transition text-sm flex-grow mono"
+                >
+                <button type="submit" id="submit-btn" class="bg-neutral-100 text-black px-10 py-4 rounded-sm font-bold hover:bg-white transition text-center uppercase text-xs tracking-widest">
+                    Submit Inquiry
+                </button>
+            </form>
+            <div id="form-status" class="hidden fade-in">
+                <p class="mono text-sm text-green-500 uppercase tracking-[0.2em] border border-green-500/20 bg-green-500/5 px-6 py-4 inline-block">
+                    Inquiry Received. Authentication Pending.
+                </p>
+            </div>
+        </div>
 
-        <div class="mt-6 flex items-center space-x-4 opacity-30 mono text-[10px] uppercase tracking-[0.2em]">
+        <div class="mt-8 flex flex-wrap items-center gap-6 opacity-30 mono text-[10px] uppercase tracking-[0.2em]">
             <span>RTL Validation: 2026.02</span>
             <span>•</span>
             <span>ARM v9.3-A/M Architecture</span>
+            <span>•</span>
+            <span>PQC-Enabled</span>
         </div>
     </header>
 
     <section id="technology" class="max-w-7xl mx-auto px-8 py-24 border-t border-white/5">
-        <div class="grid md:grid-cols-3 gap-12">
+        <div class="grid md:grid-cols-3 gap-12 text-balance">
             <div class="border-glow p-8 bg-neutral-900/30">
                 <h3 class="mono text-sm uppercase text-neutral-500 mb-4 tracking-widest">01 / VDA</h3>
                 <h4 class="text-xl font-bold mb-4">Verifiable Data Atoms</h4>
@@ -120,6 +131,38 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const form = document.getElementById("omwei-form");
+        const status = document.getElementById("form-status");
+        const btn = document.getElementById("submit-btn");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            btn.innerText = "PROCESSING...";
+            btn.disabled = true;
+
+            const data = new FormData(form);
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    form.classList.add("hidden");
+                    status.classList.remove("hidden");
+                } else {
+                    throw new Error();
+                }
+            } catch (err) {
+                btn.innerText = "ERROR";
+                btn.disabled = false;
+                alert("Submission failed. Please check your connection.");
+            }
+        });
+    </script>
 
 </body>
 </html>
