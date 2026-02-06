@@ -1,55 +1,112 @@
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>OM-WEI Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OMWEI | Sémantic Silicon for the Industrial Metaverse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body { background: #0f0f0f; color: #00ff00; font-family: 'Courier New', monospace; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        #monitor { border: 1px solid #00ff00; padding: 40px; box-shadow: 0 0 20px rgba(0, 255, 0, 0.2); text-align: center; max-width: 600px; }
-        .signal { font-size: 1.5em; margin: 20px 0; padding: 10px; border-radius: 4px; }
-        .konesuhladne { background: rgba(0, 255, 0, 0.1); border: 1px solid #00ff00; color: #00ff00; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { opacity: 0.8; } 50% { opacity: 1; } 100% { opacity: 0.8; } }
-        .history { color: #888; font-size: 0.8em; text-align: left; margin-top: 20px; border-top: 1px dashed #444; padding-top: 10px; }
+        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #e5e5e5; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .gradient-text {
+            background: linear-gradient(90deg, #ffffff 0%, #a1a1a1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .border-glow {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: border 0.3s ease;
+        }
+        .border-glow:hover {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
     </style>
 </head>
-<body>
+<body class="antialiased">
 
-<div id="monitor">
-    <h1>🏛️ OM-WEI CORE</h1>
-    <div id="status-box" class="signal">Čakám na prvý vryp...</div>
-    <div id="history-box" class="history"></div>
-</div>
+    <nav class="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto w-full">
+        <div class="text-2xl font-bold tracking-tighter mono uppercase">OMWEI</div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium opacity-70">
+            <a href="#vision" class="hover:opacity-100 transition">Vision</a>
+            <a href="#technology" class="hover:opacity-100 transition">Technology</a>
+            <a href="#ecosystem" class="hover:opacity-100 transition">Ecosystem</a>
+        </div>
+        <div>
+            <span class="mono text-xs border border-white/20 px-3 py-1 rounded-full uppercase tracking-widest">Stealth Mode</span>
+        </div>
+    </nav>
 
-<script>
-    async function updateDashboard() {
-        try {
-            const response = await fetch('http://localhost:8080/history');
-            const data = await response.text();
-            const lines = data.trim().split('\n').filter(l => l.length > 0);
-            
-            if (lines.length > 0) {
-                const lastLine = lines[lines.length - 1];
-                const statusBox = document.getElementById('status-box');
-                const historyBox = document.getElementById('history-box');
+    <header class="max-w-7xl mx-auto px-8 py-24 md:py-40">
+        <h1 class="text-5xl md:text-8xl font-bold leading-tight mb-8 tracking-tight gradient-text">
+            Sémantic Silicon for the <br> Industrial Metaverse.
+        </h1>
+        <p class="text-xl md:text-2xl max-w-2xl opacity-60 leading-relaxed mb-12">
+            Eliminating data hallucinations at the transistor level. Building the Hardware Root of Trust for a verifiable digital economy.
+        </p>
+        <div class="flex flex-col md:flex-row gap-4">
+            <a href="mailto:office@omwei.tech" class="bg-white text-black px-8 py-4 rounded-sm font-semibold hover:bg-neutral-200 transition text-center">
+                Request Technical Manifesto
+            </a>
+            <div class="px-8 py-4 mono text-sm flex items-center justify-center border border-white/10 italic">
+                RTL Validation Phase: 2026.1
+            </div>
+        </div>
+    </header>
 
-                if (lastLine.includes('konesuhladne')) {
-                    statusBox.innerHTML = "🐎 KONESÚHLADNE.ow";
-                    statusBox.className = "signal konesuhladne";
-                } else {
-                    statusBox.innerText = "📥 Príjem signálu...";
-                    statusBox.className = "signal";
-                }
+    <section id="technology" class="max-w-7xl mx-auto px-8 py-24 border-t border-white/5">
+        <div class="grid md:grid-cols-3 gap-12">
+            <div class="border-glow p-8 bg-neutral-900/30">
+                <h3 class="mono text-sm uppercase text-neutral-500 mb-4 tracking-widest">01 / VDA</h3>
+                <h4 class="text-xl font-bold mb-4">Verifiable Data Atoms</h4>
+                <p class="opacity-50 text-sm leading-relaxed">
+                    Anchoring physical reality into immutable, 16-byte cryptographic packets at the point of origin. Zero-latency sincerity for industrial telemetry.
+                </p>
+            </div>
+            <div class="border-glow p-8 bg-neutral-900/30">
+                <h3 class="mono text-sm uppercase text-neutral-500 mb-4 tracking-widest">02 / DAM</h3>
+                <h4 class="text-xl font-bold mb-4">Decentralized Autonomous Mesh</h4>
+                <p class="opacity-50 text-sm leading-relaxed">
+                    Peer-to-peer attestation logic embedded in silicon. Enabling secure collaboration between autonomous assets without centralized trust.
+                </p>
+            </div>
+            <div class="border-glow p-8 bg-neutral-900/30">
+                <h3 class="mono text-sm uppercase text-neutral-500 mb-4 tracking-widest">03 / SLC</h3>
+                <h4 class="text-xl font-bold mb-4">Sémantic Logic Core</h4>
+                <p class="opacity-50 text-sm leading-relaxed">
+                    A memory-safe Hardware Root of Trust engineered in Rust-HDL. Optimized for Arm Cortex-M85 integration and sovereign infrastructure.
+                </p>
+            </div>
+        </div>
+    </section>
 
-                // Zobrazíme posledných 5 záznamov
-                historyBox.innerHTML = lines.slice(-5).reverse().join('<br>');
-            }
-        } catch (err) {
-            document.getElementById('status-box').innerText = "❌ Brána Offline";
-        }
-    }
+    <section id="ecosystem" class="bg-white text-black py-24">
+        <div class="max-w-7xl mx-auto px-8">
+            <h2 class="text-3xl font-bold mb-16 tracking-tight italic">Aligned with the Global Semiconductor Roadmap.</h2>
+            <div class="grid md:grid-cols-2 gap-16">
+                <div>
+                    <h5 class="mono text-xs font-bold uppercase mb-2 tracking-tighter text-neutral-400 underline decoration-1">Sovereign Infrastructure</h5>
+                    <p class="text-lg">Contributing to the <strong>EU Chips Act (Pillar I)</strong> through the Slovak Chips Competence Centre. Designed for European supply chain resilience.</p>
+                </div>
+                <div>
+                    <h5 class="mono text-xs font-bold uppercase mb-2 tracking-tighter text-neutral-400 underline decoration-1">Industrial Metaverse</h5>
+                    <p class="text-lg">Ready for <strong>Siemens Xcelerator</strong> integration. Providing the "Ground Truth" hardware for high-fidelity Digital Twins.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    setInterval(updateDashboard, 1000);
-</script>
+    <footer class="max-w-7xl mx-auto px-8 py-20 border-t border-white/5 opacity-40 text-sm">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="mono">
+                &copy; 2026 OMWEI TECHNOLOGIES. BRATISLAVA, SK.
+            </div>
+            <div class="flex space-x-6">
+                <a href="mailto:office@omwei.tech" class="hover:underline">Contact</a>
+                <span>Stealth ID: 16-VDA-ARM</span>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
