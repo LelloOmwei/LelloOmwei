@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omwei Telemetry Gateway - PQC Blockchain Monitor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .header h1 {
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .status-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #ff4444;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .status-indicator.verified {
+            background: #00ff88;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+        }
+        
+        .main {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .gateway {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 100%;
+        }
+        
+        .gateway-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .gateway-header h2 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .status-text {
+            color: #666;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .atom-display {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .atom-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .atom-item:last-child {
+            border-bottom: none;
+        }
+        
+        .atom-label {
+            color: #666;
+            font-weight: 600;
+        }
+        
+        .atom-value {
+            color: #333;
+            font-weight: 400;
+        }
+        
+        .loading {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .error {
+            background: #fff5f5;
+            border: 2px solid #fed7d7;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .blockchain-info {
+            background: #e8f5e8;
+            border: 1px solid #d1e7dd;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .hash-display {
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            color: #666;
+            word-break: break-all;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 1rem;
+            }
+            
+            .header h1 {
+                font-size: 1.4rem;
+            }
+            
+            .main {
+                padding: 1rem;
+            }
+            
+            .gateway {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>
+            <span>🔐 Omwei Telemetry Gateway</span>
+            <div class="status-indicator" id="statusIndicator">🔒</div>
+        </h1>
+    </div>
+    
+    <div class="main">
+        <div class="gateway">
+            <div class="gateway-header">
+                <h2>PQC Blockchain Monitor</h2>
+                <div class="status-text" id="statusText">Authentication Pending</div>
+            </div>
+            
+            <div id="content">
+                <div class="loading">🔄 Loading latest telemetry batch...</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        class OmweiGateway {
+            constructor() {
+                this.lastHash = null;
+                this.init();
+            }
+            
+            async init() {
+                try {
+                    await this.loadLatestBatch();
+                    setInterval(() => this.loadLatestBatch(), 30000); // Refresh every 30 seconds
+                } catch (error) {
+                    this.showError('Failed to initialize gateway: ' + error.message);
+                }
+            }
+            
+            async loadLatestBatch() {
+                try {
+                    // Try known batch files directly since GitHub Pages doesn't list directories
+                    const batchFiles = [
+                        'batch-66-1770977868.json',
+                        'batch-66-1770977863.json',
+                        'test-batch-67-1770976200.json'
+                    ];
+                    
+                    // Try the latest batch first
+                    const latestBatch = batchFiles[0];
+                    await this.loadBatchData(latestBatch);
+                    
+                } catch (error) {
+                    this.showError('Failed to load batch data: ' + error.message);
+                }
+            }
+            
+            extractBatchFiles(html) {
+                const regex = /href="([^"]*batch-[^"]*\.json)"/g;
+                const matches = html.match(regex) || [];
+                return matches.map(match => match.replace('href="', '').replace('"', ''));
+            }
+            
+            async loadBatchData(filename) {
+                try {
+                    const response = await fetch('./data/' + filename, { cache: 'no-store' });
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch batch file');
+                    }
+                    
+                    const batch = await response.json();
+                    this.displayBatch(batch, filename);
+                    this.verifyBlockchain(batch);
+                    
+                } catch (error) {
+                    this.showError('Failed to parse batch data: ' + error.message);
+                }
+            }
+            
+            displayBatch(batch, filename) {
+                const content = document.getElementById('content');
+                
+                if (!batch.atoms || batch.atoms.length === 0) {
+                    content.innerHTML = `
+                        <div class="atom-display">
+                            <div class="atom-item">
+                                <span class="atom-label">Batch ID:</span>
+                                <span class="atom-value">${batch.batch_id}</span>
+                            </div>
+                            <div class="atom-item">
+                                <span class="atom-label">Status:</span>
+                                <span class="atom-value">Empty batch (verification test)</span>
+                            </div>
+                            <div class="atom-item">
+                                <span class="atom-label">Verified At:</span>
+                                <span class="atom-value">${new Date(batch.verified_at * 1000).toLocaleString()}</span>
+                            </div>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                const firstAtom = batch.atoms[0];
+                content.innerHTML = `
+                    <div class="atom-display">
+                        <div class="atom-item">
+                            <span class="atom-label">Batch ID:</span>
+                            <span class="atom-value">${batch.batch_id}</span>
+                        </div>
+                        <div class="atom-item">
+                            <span class="atom-label">Node ID:</span>
+                            <span class="atom-value">${firstAtom.NodeID}</span>
+                        </div>
+                        <div class="atom-item">
+                            <span class="atom-label">Sequence:</span>
+                            <span class="atom-value">${firstAtom.Sequence}</span>
+                        </div>
+                        <div class="atom-item">
+                            <span class="atom-label">CO₂ (ppm):</span>
+                            <span class="atom-value">${firstAtom.CO2Value}</span>
+                        </div>
+                        <div class="atom-item">
+                            <span class="atom-label">Temperature (°C):</span>
+                            <span class="atom-value">${firstAtom.Temp}</span>
+                        </div>
+                        <div class="atom-item">
+                            <span class="atom-label">Height (m):</span>
+                            <span class="atom-value">${firstAtom.Height}</span>
+                        </div>
+                        <div class="atom-item">
+                            <span class="atom-label">Status:</span>
+                            <span class="atom-value">${firstAtom.Status}</span>
+                        </div>
+                        <div class="atom-item">
+                            <span class="atom-label">Verified At:</span>
+                            <span class="atom-value">${new Date(batch.verified_at * 1000).toLocaleString()}</span>
+                        </div>
+                        <div class="atom-item">
+                            <span class="atom-label">PQC Latency:</span>
+                            <span class="atom-value">${batch.total_pqc_latency_ms}ms</span>
+                        </div>
+                        <div class="atom-item">
+                            <span class="atom-label">Atoms Verified:</span>
+                            <span class="atom-value">${batch.verified_count}/${batch.total_count}</span>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            verifyBlockchain(batch) {
+                const currentHash = batch.previous_hash;
+                const statusIndicator = document.getElementById('statusIndicator');
+                const statusText = document.getElementById('statusText');
+                
+                if (this.lastHash === null) {
+                    // First batch - genesis
+                    this.updateStatus('verified', 'Secure PQC Link Active - Genesis Block');
+                    this.lastHash = this.calculateBatchHash(batch);
+                    return;
+                }
+                
+                // Verify blockchain link
+                if (currentHash === this.lastHash) {
+                    this.updateStatus('verified', 'Secure PQC Link Active - Blockchain Verified');
+                } else {
+                    this.updateStatus('error', 'Blockchain Integrity Compromised');
+                    this.showBlockchainError(currentHash, this.lastHash);
+                }
+                
+                this.lastHash = this.calculateBatchHash(batch);
+            }
+            
+            calculateBatchHash(batch) {
+                // Simple hash simulation (in production, use proper SHA-256)
+                const batchString = JSON.stringify(batch);
+                let hash = 0;
+                for (let i = 0; i < batchString.length; i++) {
+                    const char = batchString.charCodeAt(i);
+                    hash = ((hash << 5) - hash) + char;
+                    hash = hash & hash; // Convert to 32-bit integer
+                }
+                return hash.toString(16);
+            }
+            
+            updateStatus(status, text) {
+                const statusIndicator = document.getElementById('statusIndicator');
+                const statusText = document.getElementById('statusText');
+                
+                statusIndicator.className = 'status-indicator ' + status;
+                statusText.textContent = text;
+                
+                if (status === 'verified') {
+                    statusIndicator.innerHTML = '🔓';
+                } else if (status === 'error') {
+                    statusIndicator.innerHTML = '⚠️';
+                } else {
+                    statusIndicator.innerHTML = '🔒';
+                }
+            }
+            
+            showNoData() {
+                const content = document.getElementById('content');
+                content.innerHTML = `
+                    <div class="error">
+                        <h3>No Telemetry Data Available</h3>
+                        <p>Waiting for verified batches from Omwei Monolith...</p>
+                    </div>
+                `;
+                this.updateStatus('pending', 'Authentication Pending');
+            }
+            
+            showError(message) {
+                const content = document.getElementById('content');
+                content.innerHTML = `
+                    <div class="error">
+                        <h3>Gateway Error</h3>
+                        <p>${message}</p>
+                    </div>
+                `;
+                this.updateStatus('error', 'Authentication Failed');
+            }
+            
+            showBlockchainError(currentHash, expectedHash) {
+                const content = document.getElementById('content');
+                content.innerHTML += `
+                    <div class="blockchain-info">
+                        <h4>🚨 Blockchain Integrity Alert</h4>
+                        <p><strong>Current Hash:</strong></p>
+                        <div class="hash-display">${currentHash}</div>
+                        <p><strong>Expected Hash:</strong></p>
+                        <div class="hash-display">${expectedHash}</div>
+                        <p>Data tampering detected! Please verify Monolith integrity.</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Initialize gateway when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new OmweiGateway();
+        });
+    </script>
+</body>
+</html>

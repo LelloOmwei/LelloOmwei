@@ -1,0 +1,811 @@
+{
+  "batch_id": "batch-66-1770973882",
+  "batch_verified_at": 1770973882,
+  "total_pqc_latency_ms": 0.07850900000000001,
+  "verified_count": 100,
+  "total_count": 100,
+  "atoms": [
+    {
+      "Sequence": 101,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 102,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 103,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 104,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 105,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 106,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 107,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 108,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 109,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 110,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 111,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 112,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 113,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 114,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 115,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 116,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 117,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 118,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 119,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 120,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 121,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 122,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 123,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 124,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 125,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 126,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 127,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 128,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 129,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 130,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 131,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 132,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 133,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 134,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 135,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 136,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 137,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 138,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 139,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 140,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 141,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 142,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 143,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 144,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 145,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 146,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 147,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 148,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 149,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 150,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 151,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 152,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 153,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 154,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 155,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 156,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 157,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 158,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 159,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 160,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 161,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 162,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 163,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 164,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 165,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 166,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 167,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 168,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 169,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 170,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 171,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 172,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 173,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 174,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 175,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 176,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 177,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 178,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 179,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 180,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 181,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 182,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 183,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 184,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 185,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 186,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 187,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 188,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 189,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 190,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 191,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 192,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 193,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 194,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 195,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 196,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 197,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 198,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 199,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    },
+    {
+      "Sequence": 200,
+      "NodeID": 66,
+      "Height": 50,
+      "Status": 1,
+      "CO2Value": 802,
+      "Temp": 0
+    }
+  ],
+  "node_id": 66,
+  "source": "Omwei Monolith M85"
+}

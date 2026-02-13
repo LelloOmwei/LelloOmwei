@@ -1,0 +1,20 @@
+{
+  "batch_id": "test-batch-67-1770976200",
+  "previous_hash": "genesis",
+  "batch_verified_at": 1770976200,
+  "total_pqc_latency_ms": 1.2,
+  "verified_count": 1,
+  "total_count": 1,
+  "atoms": [
+    {
+      "Sequence": 1,
+      "NodeID": 67,
+      "Height": 45,
+      "Status": 1,
+      "CO2Value": 750.0,
+      "Temp": 23
+    }
+  ],
+  "node_id": 67,
+  "source": "Omwei Monolith M85 - Gateway Test"
+}
