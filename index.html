@@ -33,11 +33,11 @@
             <span>Semantic Architecture</span>
             <span>Post-Quantum Secure</span>
         </div>
-        <div class="px-4 py-2 border border-blue-500/50 rounded-full text-[10px] mono text-blue-400 tracking-widest">PATENT PENDING</div>
+        <div class="px-4 py-2 border border-blue-500/50 rounded-full text-[10px] mono text-blue-400 tracking-widest uppercase">Patent Pending</div>
     </nav>
 
-    <section class="max-w-5xl mx-auto px-6 py-32 text-center">
-        <h1 class="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
+    <section class="max-w-5xl mx-auto px-6 py-16 text-center">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
             The Future of <span class="gradient-text">Semantic Reality</span>
         </h1>
         <p class="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
@@ -45,12 +45,12 @@
         </p>
     </section>
 
-    <section class="max-w-7xl mx-auto px-6 py-20">
-        <div class="grid md:grid-cols-3 gap-8">
+    <section class="max-w-7xl mx-auto px-6 py-8">
+        <div class="grid md:grid-cols-3 gap-6">
             <div class="p-8 bg-slate-900/30 rounded-2xl border-glow">
                 <div class="text-blue-500 mb-4 mono text-[10px] tracking-widest uppercase text-opacity-70">01 // Logic</div>
                 <h3 class="text-xl font-bold mb-4">Semantic Event Logic</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Integrated SEL logic triggers data emission only on state change. Native gate-level implementation ensures deterministic silence and zero noise.</p>
+                <p class="text-slate-400 text-sm leading-relaxed">Integrated SEL logic triggers data emission only on state change. Native gate-level implementation ensures deterministic silence.</p>
             </div>
             <div class="p-8 bg-slate-900/30 rounded-2xl border-glow">
                 <div class="text-purple-500 mb-4 mono text-[10px] tracking-widest uppercase text-opacity-70">02 // Unit</div>
@@ -65,42 +65,30 @@
         </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-6 py-20 border-t border-white/5">
-        <div class="bg-slate-950/50 p-12 rounded-3xl border border-white/5 shadow-2xl">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
+    <section class="max-w-7xl mx-auto px-6 py-12">
+        <div class="bg-slate-950/50 p-10 rounded-3xl border border-white/5 shadow-2xl">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 class="text-3xl font-bold mb-6 italic">Zero-Copy Register Mapping</h2>
-                    <p class="text-slate-400 mb-8 leading-relaxed">The OMWEI 128-bit atom (32-16-16-32-32) allows edge devices to write context and physical state directly into hardware registers, eliminating CPU overhead and software-layer vulnerabilities.</p>
-                    <ul class="space-y-4 mono text-xs text-blue-400/80">
+                    <h2 class="text-3xl font-bold mb-4 italic tracking-tight">Zero-Copy Register Mapping</h2>
+                    <p class="text-slate-400 mb-6 leading-relaxed">The OMWEI 128-bit atom (32-16-16-32-32) allows edge devices to write context and physical state directly into hardware registers.</p>
+                    <ul class="space-y-3 mono text-xs text-blue-400/80">
                         <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]"></span> [0-31] SID (Source Identity)</li>
-                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]"></span> [32-47] S-CTX (Semantic Context)</li>
-                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]"></span> [48-63] PRED (Event Predicate)</li>
-                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]"></span> [64-95] VAL (State Value)</li>
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> [32-47] S-CTX (Semantic Context)</li>
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> [48-63] PRED (Event Predicate)</li>
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> [64-95] VAL (State Value)</li>
                         <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]"></span> [96-127] S-TAG (PQC Integrity)</li>
                     </ul>
                 </div>
-                <div class="bg-[#0a0f18] rounded-2xl p-8 border border-white/5 text-left shadow-inner">
-                    <div class="flex gap-1.5 mb-6">
-                        <div class="w-2.5 h-2.5 rounded-full bg-red-500/20"></div>
-                        <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/20"></div>
-                        <div class="w-2.5 h-2.5 rounded-full bg-green-500/20"></div>
-                    </div>
+                <div class="bg-[#0a0f18] rounded-2xl p-6 border border-white/5 text-left shadow-inner">
                     <pre class="text-[11px] md:text-xs text-blue-400/70 leading-relaxed mono">
 // OMWEI Core Logic (Hardware Gate Level)
 if (delta_state > SEL_THRESHOLD) {
     
-    // Construct 128-bit Semantic Atom
     atom = build_128bit_atom(
-        SID, 
-        CONTEXT_ID, 
-        PRED_CHANGE, 
-        current_val
+        SID, CONTEXT_ID, PRED_CHANGE, current_val
     );
     
-    // Sign with Post-Quantum Seal
     sign_pqc(atom, &private_key);
-    
-    // Deterministic Emission
     emit_to_sgn_fabric(atom);
 
 } else {
@@ -112,11 +100,11 @@ if (delta_state > SEL_THRESHOLD) {
         </div>
     </section>
 
-    <footer class="max-w-7xl mx-auto px-6 py-24 border-t border-white/5 text-center">
-        <div class="text-slate-500 text-[11px] tracking-[0.2em] uppercase mono mb-6">
+    <footer class="max-w-7xl mx-auto px-6 py-10 border-t border-white/5 text-center">
+        <div class="text-slate-500 text-[10px] tracking-[0.2em] uppercase mono mb-4">
             Protocol Status: Active // Documentation: Classified
         </div>
-        <p class="text-slate-600 text-xs mb-2 italic">© 2026 OMWEI Foundation (in formation)</p>
+        <p class="text-slate-600 text-xs mb-1 italic">© 2026 OMWEI Foundation (in formation)</p>
         <p class="text-slate-600 text-[10px] mono uppercase tracking-widest">
             Intellectual Property secured by Priority Filing No. [UPV-SR-2026]
         </p>
