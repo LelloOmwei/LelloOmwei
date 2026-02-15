@@ -1,411 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omwei Telemetry Gateway - PQC Blockchain Monitor</title>
+    <title>OMWEI | Hardware-Native Semantic Integrity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        body { font-family: 'Inter', sans-serif; background-color: #05070a; color: #e2e8f0; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        .gradient-text {
+            background: linear-gradient(90deg, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+        .hero-glow {
+            box-shadow: 0 0 50px rgba(59, 130, 246, 0.1);
         }
-        
-        .header {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        .border-glow {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: border 0.3s ease;
         }
-        
-        .header h1 {
-            color: white;
-            font-size: 1.8rem;
-            font-weight: 300;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .status-indicator {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: #ff4444;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            transition: all 0.3s ease;
-        }
-        
-        .status-indicator.verified {
-            background: #00ff88;
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
-        }
-        
-        .main {
-            flex: 1;
-            padding: 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .gateway {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            max-width: 800px;
-            width: 100%;
-        }
-        
-        .gateway-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .gateway-header h2 {
-            color: #333;
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .status-text {
-            color: #666;
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-        
-        .atom-display {
-            background: #f8f9fa;
-            border: 2px solid #e9ecef;
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin-top: 2rem;
-            font-family: 'Courier New', monospace;
-        }
-        
-        .atom-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #e9ecef;
-        }
-        
-        .atom-item:last-child {
-            border-bottom: none;
-        }
-        
-        .atom-label {
-            color: #666;
-            font-weight: 600;
-        }
-        
-        .atom-value {
-            color: #333;
-            font-weight: 400;
-        }
-        
-        .loading {
-            text-align: center;
-            color: #666;
-            font-size: 1.1rem;
-        }
-        
-        .error {
-            background: #fff5f5;
-            border: 2px solid #fed7d7;
-            color: #721c24;
-            padding: 1rem;
-            border-radius: 10px;
-            text-align: center;
-        }
-        
-        .blockchain-info {
-            background: #e8f5e8;
-            border: 1px solid #d1e7dd;
-            border-radius: 10px;
-            padding: 1rem;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-        }
-        
-        .hash-display {
-            font-family: 'Courier New', monospace;
-            font-size: 0.8rem;
-            color: #666;
-            word-break: break-all;
-        }
-        
-        @media (max-width: 768px) {
-            .header {
-                padding: 1rem;
-            }
-            
-            .header h1 {
-                font-size: 1.4rem;
-            }
-            
-            .main {
-                padding: 1rem;
-            }
-            
-            .gateway {
-                padding: 1.5rem;
-            }
+        .border-glow:hover {
+            border: 1px solid rgba(96, 165, 250, 0.5);
         }
     </style>
 </head>
-<body>
-    <div class="header">
-        <h1>
-            <span>🔐 Omwei Telemetry Gateway</span>
-            <div class="status-indicator" id="statusIndicator">🔒</div>
+<body class="antialiased">
+
+    <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto">
+        <div class="text-2xl font-bold tracking-tighter mono">OM<span class="text-blue-500">WEI</span></div>
+        <div class="space-x-8 text-sm uppercase tracking-widest hidden md:block">
+            <a href="#tech" class="hover:text-blue-400 transition">Technology</a>
+            <a href="#architecture" class="hover:text-blue-400 transition">Architecture</a>
+            <a href="#ip" class="hover:text-blue-400 transition">Legal</a>
+        </div>
+        <div class="px-4 py-2 border border-blue-500/50 rounded-full text-xs mono text-blue-400">PATENT PENDING</div>
+    </nav>
+
+    <section class="max-w-5xl mx-auto px-6 py-24 text-center">
+        <h1 class="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
+            The Future of <span class="gradient-text">Semantic Reality</span>
         </h1>
-    </div>
-    
-    <div class="main">
-        <div class="gateway">
-            <div class="gateway-header">
-                <h2>PQC Blockchain Monitor</h2>
-                <div class="status-text" id="statusText">Authentication Pending</div>
+        <p class="text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+            OMWEI is a hardware-native architecture that transforms raw telemetry into verified Reality Anchors. Optimized for ARM v9-A and Post-Quantum Security.
+        </p>
+        <div class="flex justify-center gap-4">
+            <a href="#tech" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-semibold transition">Explore Technology</a>
+            <a href="#ip" class="bg-slate-800 hover:bg-slate-700 text-white px-8 py-3 rounded-md font-semibold transition">IP Documentation</a>
+        </div>
+    </section>
+
+    <section id="tech" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="p-8 bg-slate-900/50 rounded-2xl border-glow">
+                <div class="text-blue-400 mb-4 mono text-sm tracking-tighter">01 // ENGINE</div>
+                <h3 class="text-xl font-bold mb-4">Semantic Event Logic</h3>
+                <p class="text-slate-400 text-sm">Hardware-integrated SEL logic triggers data emission only on state change. Native gate-level implementation reduces noise by 99%.</p>
             </div>
-            
-            <div id="content">
-                <div class="loading">🔄 Loading latest telemetry batch...</div>
+            <div class="p-8 bg-slate-900/50 rounded-2xl border-glow">
+                <div class="text-purple-400 mb-4 mono text-sm tracking-tighter">02 // DATA</div>
+                <h3 class="text-xl font-bold mb-4">128-bit Semantic Atom</h3>
+                <p class="text-slate-400 text-sm">A proprietary fixed-length data structure designed for Zero-Copy register mapping and high-speed SoC processing.</p>
+            </div>
+            <div class="p-8 bg-slate-900/50 rounded-2xl border-glow">
+                <div class="text-green-400 mb-4 mono text-sm tracking-tighter">03 // SECURITY</div>
+                <h3 class="text-xl font-bold mb-4">Post-Quantum Notarization</h3>
+                <p class="text-slate-400 text-sm">Every data point is cryptographically sealed using PQC signatures at the edge, creating an immutable Reality Anchor.</p>
             </div>
         </div>
-    </div>
-    
-    <script>
-        class OmweiGateway {
-            constructor() {
-                this.lastHash = null;
-                this.init();
-            }
-            
-            async init() {
-                try {
-                    await this.loadLatestBatch();
-                    setInterval(() => this.loadLatestBatch(), 30000); // Refresh every 30 seconds
-                } catch (error) {
-                    this.showError('Failed to initialize gateway: ' + error.message);
-                }
-            }
-            
-            async loadLatestBatch() {
-                try {
-                    // Try known batch files directly since GitHub Pages doesn't list directories
-                    const batchFiles = [
-                        'batch-66-1770977868.json',
-                        'batch-66-1770977863.json',
-                        'test-batch-67-1770976200.json'
-                    ];
-                    
-                    // Try the latest batch first
-                    const latestBatch = batchFiles[0];
-                    await this.loadBatchData(latestBatch);
-                    
-                } catch (error) {
-                    this.showError('Failed to load batch data: ' + error.message);
-                }
-            }
-            
-            extractBatchFiles(html) {
-                const regex = /href="([^"]*batch-[^"]*\.json)"/g;
-                const matches = html.match(regex) || [];
-                return matches.map(match => match.replace('href="', '').replace('"', ''));
-            }
-            
-            async loadBatchData(filename) {
-                try {
-                    const response = await fetch('./data/' + filename, { cache: 'no-store' });
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch batch file');
-                    }
-                    
-                    const batch = await response.json();
-                    this.displayBatch(batch, filename);
-                    this.verifyBlockchain(batch);
-                    
-                } catch (error) {
-                    this.showError('Failed to parse batch data: ' + error.message);
-                }
-            }
-            
-            displayBatch(batch, filename) {
-                const content = document.getElementById('content');
-                
-                if (!batch.atoms || batch.atoms.length === 0) {
-                    content.innerHTML = `
-                        <div class="atom-display">
-                            <div class="atom-item">
-                                <span class="atom-label">Batch ID:</span>
-                                <span class="atom-value">${batch.batch_id}</span>
-                            </div>
-                            <div class="atom-item">
-                                <span class="atom-label">Status:</span>
-                                <span class="atom-value">Empty batch (verification test)</span>
-                            </div>
-                            <div class="atom-item">
-                                <span class="atom-label">Verified At:</span>
-                                <span class="atom-value">${new Date(batch.verified_at * 1000).toLocaleString()}</span>
-                            </div>
-                        </div>
-                    `;
-                    return;
-                }
-                
-                const firstAtom = batch.atoms[0];
-                content.innerHTML = `
-                    <div class="atom-display">
-                        <div class="atom-item">
-                            <span class="atom-label">Batch ID:</span>
-                            <span class="atom-value">${batch.batch_id}</span>
-                        </div>
-                        <div class="atom-item">
-                            <span class="atom-label">Node ID:</span>
-                            <span class="atom-value">${firstAtom.NodeID}</span>
-                        </div>
-                        <div class="atom-item">
-                            <span class="atom-label">Sequence:</span>
-                            <span class="atom-value">${firstAtom.Sequence}</span>
-                        </div>
-                        <div class="atom-item">
-                            <span class="atom-label">CO₂ (ppm):</span>
-                            <span class="atom-value">${firstAtom.CO2Value}</span>
-                        </div>
-                        <div class="atom-item">
-                            <span class="atom-label">Temperature (°C):</span>
-                            <span class="atom-value">${firstAtom.Temp}</span>
-                        </div>
-                        <div class="atom-item">
-                            <span class="atom-label">Height (m):</span>
-                            <span class="atom-value">${firstAtom.Height}</span>
-                        </div>
-                        <div class="atom-item">
-                            <span class="atom-label">Status:</span>
-                            <span class="atom-value">${firstAtom.Status}</span>
-                        </div>
-                        <div class="atom-item">
-                            <span class="atom-label">Verified At:</span>
-                            <span class="atom-value">${new Date(batch.verified_at * 1000).toLocaleString()}</span>
-                        </div>
-                        <div class="atom-item">
-                            <span class="atom-label">PQC Latency:</span>
-                            <span class="atom-value">${batch.total_pqc_latency_ms}ms</span>
-                        </div>
-                        <div class="atom-item">
-                            <span class="atom-label">Atoms Verified:</span>
-                            <span class="atom-value">${batch.verified_count}/${batch.total_count}</span>
-                        </div>
-                    </div>
-                `;
-            }
-            
-            verifyBlockchain(batch) {
-                const currentHash = batch.previous_hash;
-                const statusIndicator = document.getElementById('statusIndicator');
-                const statusText = document.getElementById('statusText');
-                
-                if (this.lastHash === null) {
-                    // First batch - genesis
-                    this.updateStatus('verified', 'Secure PQC Link Active - Genesis Block');
-                    this.lastHash = this.calculateBatchHash(batch);
-                    return;
-                }
-                
-                // Verify blockchain link
-                if (currentHash === this.lastHash) {
-                    this.updateStatus('verified', 'Secure PQC Link Active - Blockchain Verified');
-                } else {
-                    this.updateStatus('error', 'Blockchain Integrity Compromised');
-                    this.showBlockchainError(currentHash, this.lastHash);
-                }
-                
-                this.lastHash = this.calculateBatchHash(batch);
-            }
-            
-            calculateBatchHash(batch) {
-                // Simple hash simulation (in production, use proper SHA-256)
-                const batchString = JSON.stringify(batch);
-                let hash = 0;
-                for (let i = 0; i < batchString.length; i++) {
-                    const char = batchString.charCodeAt(i);
-                    hash = ((hash << 5) - hash) + char;
-                    hash = hash & hash; // Convert to 32-bit integer
-                }
-                return hash.toString(16);
-            }
-            
-            updateStatus(status, text) {
-                const statusIndicator = document.getElementById('statusIndicator');
-                const statusText = document.getElementById('statusText');
-                
-                statusIndicator.className = 'status-indicator ' + status;
-                statusText.textContent = text;
-                
-                if (status === 'verified') {
-                    statusIndicator.innerHTML = '🔓';
-                } else if (status === 'error') {
-                    statusIndicator.innerHTML = '⚠️';
-                } else {
-                    statusIndicator.innerHTML = '🔒';
-                }
-            }
-            
-            showNoData() {
-                const content = document.getElementById('content');
-                content.innerHTML = `
-                    <div class="error">
-                        <h3>No Telemetry Data Available</h3>
-                        <p>Waiting for verified batches from Omwei Monolith...</p>
-                    </div>
-                `;
-                this.updateStatus('pending', 'Authentication Pending');
-            }
-            
-            showError(message) {
-                const content = document.getElementById('content');
-                content.innerHTML = `
-                    <div class="error">
-                        <h3>Gateway Error</h3>
-                        <p>${message}</p>
-                    </div>
-                `;
-                this.updateStatus('error', 'Authentication Failed');
-            }
-            
-            showBlockchainError(currentHash, expectedHash) {
-                const content = document.getElementById('content');
-                content.innerHTML += `
-                    <div class="blockchain-info">
-                        <h4>🚨 Blockchain Integrity Alert</h4>
-                        <p><strong>Current Hash:</strong></p>
-                        <div class="hash-display">${currentHash}</div>
-                        <p><strong>Expected Hash:</strong></p>
-                        <div class="hash-display">${expectedHash}</div>
-                        <p>Data tampering detected! Please verify Monolith integrity.</p>
-                    </div>
-                `;
-            }
-        }
-        
-        // Initialize gateway when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            new OmweiGateway();
-        });
-    </script>
-</body>
-</html>
+    </section>
+
+    <section id="architecture" class="max-w-7xl mx-auto px-6 py-20 border-t border-white/5">
+        <div class="bg-slate-950 p-8 rounded-3xl border border-blue-500/20 shadow-2xl overflow-hidden relative">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">Zero-Copy Register Mapping</h2>
+                    <p class="text-slate-400 mb-6">Our 128-bit structure (32-16-16-32-32) allows sensors to bypass the CPU overhead, writing context and state directly into hardware registers.</p>
+                    <ul class="space-y-4 mono text-xs text-blue-300">
+                        <li class="flex items-center gap-2"><span class="w-2 h-2 bg-blue-500 rounded-full"></span> [0-31] SID (Source Identity)</li>
+                        <li class="flex items-center gap-2"><span class="w-2 h-2 bg-blue-500 rounded-full"></span> [32-47] S-CTX (Semantic Context)</li>
+                        <li class="flex items-center gap-2"><span class="w-2 h-2 bg-blue-500 rounded-full"></span> [48-63] PRED (Event Predicate)</li>
+                        <li class="flex items-center gap-2"><span class="w-2 h-2 bg-blue-500 rounded-full"></span> [64-95] VAL (State Value)</li>
+                        <li class="flex items-center gap-2"><span class="w-2 h-2 bg-blue-500 rounded-full"></span> [96-127] S-TAG (PQC Integrity
