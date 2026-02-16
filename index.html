@@ -22,6 +22,19 @@
             border: 1px solid rgba(96, 165, 250, 0.3);
             background: rgba(15, 23, 42, 0.6);
         }
+        /* Custom styles for the request form */
+        #request-form-container { display: none; }
+        .input-field {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0.75rem;
+            border-radius: 8px;
+            width: 100%;
+            outline: none;
+            transition: border 0.3s;
+        }
+        .input-field:focus { border: 1px solid #3b82f6; }
     </style>
 </head>
 <body class="antialiased">
@@ -67,40 +80,37 @@
     </section>
 
     <section class="max-w-7xl mx-auto px-6 py-12">
-        <div class="bg-slate-950/50 p-10 rounded-3xl border border-white/5 shadow-2xl">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="bg-slate-950/50 p-10 rounded-3xl border border-white/5 shadow-2xl text-center">
+            <div class="grid md:grid-cols-2 gap-12 items-center text-left">
                 <div>
                     <h2 class="text-3xl font-bold mb-4 italic tracking-tight text-white">Zero-Copy Register Mapping</h2>
-                    <p class="text-slate-400 mb-6 leading-relaxed">The OMWEI 128-bit atom (32-16-16-32-32) allows edge devices to write physical state and context directly into hardware registers, bypassing CPU overhead.</p>
-                    <ul class="space-y-3 mono text-[11px] text-blue-400/80">
+                    <p class="text-slate-400 mb-6 leading-relaxed">The OMWEI 128-bit atom (32-16-16-32-32) allows edge devices to write physical state and context directly into hardware registers.</p>
+                    <ul class="space-y-3 mono text-[11px] text-blue-400/80 mb-8">
                         <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]"></span> [0-31] SID (Source Identity)</li>
-                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> [32-47] S-CTX (Semantic Context)</li>
-                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> [48-63] PRED (Event Predicate)</li>
-                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> [64-95] VAL (State Value)</li>
-                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]"></span> [96-127] S-TAG (PQC Integrity)</li>
+                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full"></span> [96-127] S-TAG (PQC Integrity)</li>
                     </ul>
-                </div>
-                <div class="bg-[#0a0f18] rounded-2xl p-6 border border-white/5 text-left shadow-inner">
-                    <pre class="text-[11px] md:text-xs text-blue-400/70 leading-relaxed mono">
-// OMWEI Core Logic (Hardware Gate Level)
-if (delta_state > SEL_THRESHOLD) {
-    
-    // Construct 128-bit Semantic Atom
-    atom = build_128bit_atom(
-        SID, 
-        CONTEXT_ID, 
-        PRED_CHANGE, 
-        current_val
-    );
-    
-    // Sign with Post-Quantum Seal
-    sign_pqc(atom, &private_key);
-    
-    // Deterministic Emission
-    emit_to_sgn_fabric(atom);
+                    
+                    <button onclick="document.getElementById('request-form-container').style.display='block'; this.style.display='none'" class="px-6 py-3 bg-blue-600/20 border border-blue-500/50 rounded-xl text-xs mono text-blue-400 uppercase tracking-[0.2em] hover:bg-blue-600/40 transition-all shadow-[0_0_15px_rgba(59,130,246,0.2)]">
+                        Request Technical Brief (NDA required)
+                    </button>
 
+                    <div id="request-form-container" class="mt-6 p-6 bg-white/5 rounded-2xl border border-white/10">
+                        <form id="contact-form" action="https://formspree.io/f/xkovnwkk" method="POST" class="space-y-4">
+                            <input type="email" name="email" placeholder="Professional Email" required class="input-field mono text-xs">
+                            <textarea name="message" placeholder="Project Interest / Company" required class="input-field mono text-xs h-24"></textarea>
+                            <button type="submit" id="submit-btn" class="w-full py-3 bg-blue-500 text-white rounded-lg text-xs mono uppercase font-bold hover:bg-blue-400 transition-colors">Send Request</button>
+                        </form>
+                        <div id="form-status" class="hidden mt-4 mono text-[10px] text-green-400 uppercase tracking-widest text-center">Request sent successfully.</div>
+                    </div>
+                </div>
+
+                <div class="bg-[#0a0f18] rounded-2xl p-6 border border-white/5 shadow-inner">
+                    <pre class="text-[11px] md:text-xs text-blue-400/70 leading-relaxed mono">// OMWEI Core Logic
+if (delta_state > SEL_THRESHOLD) {
+    atom = build_128bit_atom(SID, CONTEXT_ID, PRED_CHANGE, val);
+    sign_pqc(atom, &private_key);
+    emit_to_sgn_fabric(atom);
 } else {
-    // Protocol: Proof of Silence
     maintain_low_power_state();
 }</pre>
                 </div>
@@ -118,5 +128,32 @@ if (delta_state > SEL_THRESHOLD) {
         </p>
     </footer>
 
+    <script>
+        const form = document.getElementById('contact-form');
+        const status = document.getElementById('form-status');
+        const submitBtn = document.getElementById('submit-btn');
+
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Processing...";
+            
+            const data = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                form.style.display = 'none';
+                status.classList.remove('hidden');
+            } else {
+                alert("Error sending request. Please try again.");
+                submitBtn.disabled = false;
+                submitBtn.innerText = "Send Request";
+            }
+        };
+    </script>
 </body>
 </html>
