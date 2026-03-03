@@ -38,21 +38,28 @@
 </head>
 <body class="antialiased">
 
-    <nav class="p-6 flex justify-between items-center max-w-7xl mx-auto">
-        <div class="text-2xl font-bold tracking-tighter mono uppercase">OM<span class="text-blue-500">WEI</span></div>
-        <div class="hidden md:flex space-x-8 text-[10px] uppercase tracking-[0.3em] text-slate-500">
-            <span>SGN Core Enterprise</span>
-            <span>AX-Ready Architecture</span>
-            <span>Post-Quantum Secure</span>
+    <nav class="p-6 max-w-7xl mx-auto border-b border-white/5">
+        <div class="flex justify-between items-center mb-4">
+            <div class="text-2xl font-bold tracking-tighter mono uppercase">OM<span class="text-blue-500">WEI</span></div>
+            <div class="px-4 py-2 border border-blue-500/50 rounded-full text-[10px] mono text-blue-400 tracking-widest uppercase">Patent Pending</div>
         </div>
-        <div class="px-4 py-2 border border-blue-500/50 rounded-full text-[10px] mono text-blue-400 tracking-widest uppercase">Patent Pending</div>
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div class="text-[11px] mono text-slate-500 tracking-tight">
+                <span class="text-blue-400/80">TAGLINE //</span> Open-source HW Trust Anchor (ARM-M85) with Data Sincerity logic in Rust-HDL.
+            </div>
+            <div class="hidden lg:flex space-x-6 text-[9px] uppercase tracking-[0.3em] text-slate-600">
+                <span>SGN Core Enterprise</span>
+                <span>AX-Ready</span>
+                <span>PQC Secure</span>
+            </div>
+        </div>
     </nav>
 
-    <section class="max-w-5xl mx-auto px-6 py-16 text-center">
-        <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight italic">
+    <section class="max-w-5xl mx-auto px-6 py-20 text-center">
+        <h1 class="text-6xl md:text-8xl font-bold mb-8 tracking-tight italic">
             Actionable <span class="gradient-text">Truth</span>
         </h1>
-        <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+        <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-light">
             OMWEI transforms chaotic sensor telemetry into verified **AX-Ready** assets at the gate-level. 
             The hardware-native trust layer for autonomous industrial infrastructure.
         </p>
@@ -63,12 +70,12 @@
             <div class="p-8 bg-slate-900/30 rounded-2xl border-glow">
                 <div class="text-blue-500 mb-4 mono text-[10px] tracking-widest uppercase text-opacity-70">01 // Logic</div>
                 <h3 class="text-xl font-bold mb-4">SGN Core Enterprise</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Proprietary SEL (Semantic Event Logic) implemented in RTL. Eliminates software-level vulnerabilities by enforcing data integrity at the silicon gates.</p>
+                <p class="text-slate-400 text-sm leading-relaxed">Proprietary SEL (Semantic Event Logic) implemented in RTL via **Rust-HDL**. Eliminates software-level vulnerabilities by enforcing data integrity at the silicon gates.</p>
             </div>
             <div class="p-8 bg-slate-900/30 rounded-2xl border-glow">
                 <div class="text-purple-500 mb-4 mono text-[10px] tracking-widest uppercase text-opacity-70">02 // Unit</div>
                 <h3 class="text-xl font-bold mb-4">32B Semantic Atom</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">A high-density 256-bit data structure optimized for Zero-Copy register mapping, carrying verified physical context and PQC signatures.</p>
+                <p class="text-slate-400 text-sm leading-relaxed">A high-density 256-bit data structure optimized for **ARM-M85** Zero-Copy register mapping, carrying verified physical context and PQC signatures.</p>
             </div>
             <div class="p-8 bg-slate-900/30 rounded-2xl border-glow">
                 <div class="text-green-500 mb-4 mono text-[10px] tracking-widest uppercase text-opacity-70">03 // Trust</div>
@@ -82,7 +89,7 @@
         <div class="bg-slate-950/50 p-10 rounded-3xl border border-white/5 shadow-2xl">
             <div class="grid md:grid-cols-2 gap-12 items-center text-left">
                 <div>
-                    <h2 class="text-3xl font-bold mb-4 italic tracking-tight text-white">Zero-Copy Register Mapping</h2>
+                    <h2 class="text-3xl font-bold mb-4 italic tracking-tight text-white font-light">Zero-Copy Register Mapping</h2>
                     <p class="text-slate-400 mb-6 leading-relaxed">The OMWEI architecture allows SGN Nodes to write physical state and semantic context directly into hardware registers with zero CPU jitter.</p>
                     <ul class="space-y-3 mono text-[11px] text-blue-400/80 mb-8">
                         <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-blue-500 rounded-full shadow-[0_0_8px_rgba(59,130,246,0.6)]"></span> [0-31] SID (Source Identity)</li>
@@ -106,12 +113,12 @@
                 </div>
 
                 <div class="bg-[#0a0f18] rounded-2xl p-6 border border-white/5 shadow-inner">
-                    <pre class="text-[11px] md:text-xs text-blue-400/70 leading-relaxed mono">// SGN Core Logic (SEL-v1)
+                    <pre class="text-[11px] md:text-xs text-blue-400/70 leading-relaxed mono">// SGN Core Logic (SEL-v1) @ ARM-M85
 if (delta_state > SEL_THRESHOLD) {
     // Transform into 32B Semantic Atom
     atom = build_256bit_atom(SID, CTX, PRED, val);
     
-    // Hardware-Accelerated PQC Seal
+    // Hardware-Accelerated PQC Seal (SLH-DSA)
     sign_slh_dsa(atom, &sgn_private_key);
     
     // Push to SGN Fabric as AX-Ready Data
@@ -126,7 +133,7 @@ if (delta_state > SEL_THRESHOLD) {
 
     <footer id="ip" class="max-w-7xl mx-auto px-6 py-12 border-t border-white/5 text-center text-slate-500">
         <div class="text-[10px] tracking-[0.2em] uppercase mono mb-4">
-            RTL Validation: 2026.02 // ARM v9-A Support // Status: AX-Ready Enabled
+            RTL Validation: 2026.02 // ARM v9-A (M85) // Status: AX-Ready Enabled
         </div>
         <p class="text-xs mb-1 italic">© 2026 OMWEI TECHNOLOGIES / OMWEI Foundation (in formation)</p>
         <p class="text-[10px] mono uppercase tracking-widest">
