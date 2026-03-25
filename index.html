@@ -45,10 +45,10 @@
         </div>
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div class="text-[11px] mono text-slate-500 tracking-tight">
-                <span class="text-blue-400/80">TAGLINE //</span> Open-source HW Trust Anchor with Data Sincerity logic in Rust-HDL.
+                <span class="text-blue-400/80">TAGLINE //</span> HW Trust Anchor with Data Sincerity logic in Rust-HDL.
             </div>
             <div class="hidden lg:flex space-x-6 text-[9px] uppercase tracking-[0.3em] text-slate-600">
-                <span>SGN Core Enterprise</span>
+                <span>SLC Core</span>
                 <span>AX-Ready</span>
                 <span>PQC Secure</span>
             </div>
@@ -71,7 +71,7 @@
         <div class="grid md:grid-cols-3 gap-6">
             <div class="p-8 bg-slate-900/30 rounded-2xl border-glow">
                 <div class="text-blue-500 mb-4 mono text-[10px] tracking-widest uppercase text-opacity-70">01 // Logic</div>
-                <h3 class="text-xl font-bold mb-4">SGN Core Enterprise</h3>
+                <h3 class="text-xl font-bold mb-4">SLC Core</h3>
                 <p class="text-slate-400 text-sm leading-relaxed">Proprietary SEL (Semantic Event Logic) implemented in RTL via **Rust-HDL**. Eliminates software-level vulnerabilities by enforcing data integrity at the silicon gates.</p>
             </div>
             <div class="p-8 bg-slate-900/30 rounded-2xl border-glow">
@@ -115,7 +115,7 @@
                 </div>
 
                 <div class="bg-[#0a0f18] rounded-2xl p-6 border border-white/5 shadow-inner">
-                    <pre class="text-[11px] md:text-xs text-blue-400/70 leading-relaxed mono">// SGN Core Logic (SEL-v1)
+                    <pre class="text-[11px] md:text-xs text-blue-400/70 leading-relaxed mono">// SLC Core Logic (SEL-v1)
 if (delta_state > SEL_THRESHOLD) {
     // Transform into 32B Semantic Atom
     atom = build_256bit_atom(SID, CTX, PRED, val);
@@ -135,7 +135,7 @@ if (delta_state > SEL_THRESHOLD) {
 
     <footer id="ip" class="max-w-7xl mx-auto px-6 py-12 border-t border-white/5 text-center text-slate-500">
         <div class="text-[10px] tracking-[0.2em] uppercase mono mb-4">
-            RTL Validation: 2026.02 // ARM v9-A (M85) // Status: AX-Ready Enabled
+            RTL Validation: 2026.02 // Status: AX-Ready Enabled
         </div>
         <p class="text-xs mb-1 italic">© 2026 Equinibrium s.r.o. </p>
         <p class="text-[10px] mono uppercase tracking-widest">
