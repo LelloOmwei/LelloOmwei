@@ -4,189 +4,167 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OMWEI | Execution Integrity Signal</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-    
+
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #05070a; color: #e2e8f0; }
-        .mono { font-family: 'JetBrains Mono', monospace; }
-        .gradient-text {
-            background: linear-gradient(90deg, #60a5fa, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #0b0f14;
+            color: #d1d5db;
+            margin: 0;
+            line-height: 1.6;
         }
-        .border-glow {
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: all 0.3s ease;
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
-        .border-glow:hover {
-            border: 1px solid rgba(96,165,250,0.3);
-            background: rgba(15,23,42,0.6);
-        }
-        #request-form-container { display:none; }
-        .input-field {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
             color: white;
-            padding: 0.75rem;
-            border-radius: 8px;
-            width: 100%;
-            outline: none;
         }
-        .input-field:focus { border:1px solid #3b82f6; }
+
+        h2 {
+            font-size: 20px;
+            margin-top: 50px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        p {
+            color: #9ca3af;
+            font-size: 16px;
+        }
+
+        .mono {
+            font-family: monospace;
+            font-size: 13px;
+            color: #60a5fa;
+        }
+
+        .block {
+            border: 1px solid #1f2937;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .code {
+            background: #05070a;
+            padding: 15px;
+            font-family: monospace;
+            font-size: 13px;
+            color: #93c5fd;
+            overflow-x: auto;
+        }
+
+        .badge {
+            display: inline-block;
+            border: 1px solid #374151;
+            padding: 6px 10px;
+            font-size: 12px;
+            margin-top: 10px;
+            color: #9ca3af;
+        }
+
+        footer {
+            margin-top: 80px;
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
     </style>
 </head>
 
-<body class="antialiased">
+<body>
 
-<nav class="p-6 max-w-7xl mx-auto border-b border-white/5">
-    <div class="flex justify-between items-center mb-4">
-        <div class="text-2xl font-bold mono uppercase">OM<span class="text-blue-500">WEI</span></div>
-        <div class="px-4 py-2 border border-blue-500/50 rounded-full text-[10px] mono text-blue-400 uppercase">
-            Execution Signal
-        </div>
-    </div>
+<div class="container">
 
-    <div class="text-[11px] mono text-slate-500">
-        <span class="text-blue-400">TAGLINE //</span> Hardware-backed execution integrity
-    </div>
-</nav>
+    <h1>OMWEI</h1>
+    <div class="mono">Execution Integrity Signal</div>
 
-<section class="max-w-5xl mx-auto px-6 py-20 text-center relative">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-500/10 rounded-full blur-[120px]"></div>
-
-    <h1 class="text-6xl md:text-8xl font-bold mb-8 italic">
-        OMWEI <span class="gradient-text">Enabled</span>
-    </h1>
-
-    <p class="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-        A hardware-backed signal that system execution is enforced and verifiable.  
-        OMWEI defines trusted execution for autonomous and AI-driven systems.
+    <p>
+        OMWEI is a hardware-backed signal indicating that system execution is enforced and verifiable.
     </p>
-</section>
 
-<section class="max-w-7xl mx-auto px-6 py-6">
-    <div class="grid md:grid-cols-3 gap-6">
+    <div class="badge">Defined by Equinibrium</div>
 
-        <div class="p-8 bg-slate-900/30 rounded-2xl border-glow">
-            <div class="text-blue-500 mono text-[10px] uppercase mb-4">01 // Core</div>
-            <h3 class="text-xl font-bold mb-4">SLC IP</h3>
-            <p class="text-slate-400 text-sm">
-                Hardware IP enforcing instruction-level execution constraints.  
-                Prevents unsafe or unauthorized behavior before execution.
-            </p>
-        </div>
+    <h2>Definition</h2>
 
-        <div class="p-8 bg-slate-900/30 rounded-2xl border-glow">
-            <div class="text-purple-500 mono text-[10px] uppercase mb-4">02 // Format</div>
-            <h3 class="text-xl font-bold mb-4">32BSA</h3>
-            <p class="text-slate-400 text-sm">
-                Machine-native data format carrying intent and constraints.  
-                Designed for direct hardware validation and zero-copy processing.
-            </p>
-        </div>
+    <div class="block">
+        <p>
+            A system is OMWEI-enabled if its execution behavior is constrained and validated at the hardware level.
+        </p>
 
-        <div class="p-8 bg-slate-900/30 rounded-2xl border-glow">
-            <div class="text-green-500 mono text-[10px] uppercase mb-4">03 // Signal</div>
-            <h3 class="text-xl font-bold mb-4">OMWEI Signal</h3>
-            <p class="text-slate-400 text-sm">
-                Indicates that execution is hardware-enforced and verifiable.  
-                Marks trusted compute systems.
-            </p>
-        </div>
-
+        <ul>
+            <li>Instruction flow is validated before execution</li>
+            <li>Unsafe or unauthorized behavior is blocked</li>
+            <li>Execution is deterministic and auditable</li>
+        </ul>
     </div>
-</section>
 
-<section class="max-w-7xl mx-auto px-6 py-12">
-    <div class="bg-slate-950/50 p-10 rounded-3xl border border-white/5">
+    <h2>What It Means</h2>
 
-        <div class="grid md:grid-cols-2 gap-12 items-center">
+    <div class="block">
+        <p>
+            OMWEI replaces software-defined trust with hardware-enforced execution guarantees.
+        </p>
 
-            <div>
-                <h2 class="text-3xl font-light mb-4 italic">
-                    Hardware-Enforced Data Path
-                </h2>
+        <ul>
+            <li>No reliance on post-execution validation</li>
+            <li>No dependence on software-only guardrails</li>
+            <li>Execution constraints are enforced in silicon</li>
+        </ul>
+    </div>
 
-                <p class="text-slate-400 mb-6">
-                    OMWEI enables direct mapping of verified execution context into hardware registers,  
-                    ensuring deterministic system behavior with minimal overhead.
-                </p>
+    <h2>Implementation</h2>
 
-                <button onclick="document.getElementById('request-form-container').style.display='block'; this.style.display='none'"
-                    class="px-6 py-3 bg-blue-600/20 border border-blue-500/50 rounded-xl text-xs mono uppercase text-blue-400">
-                    Request Technical Overview
-                </button>
+    <div class="block">
+        <p>
+            OMWEI is enabled through silicon IP integrated into processor architectures.
+        </p>
 
-                <div id="request-form-container" class="mt-6 p-6 bg-white/5 rounded-2xl border border-white/10">
+        <ul>
+            <li>Instruction-level enforcement logic</li>
+            <li>Constraint-aware execution path</li>
+            <li>Hardware validation of execution context</li>
+        </ul>
+    </div>
 
-                    <form id="contact-form" action="https://formspree.io/f/xkovnwkk" method="POST" class="space-y-4">
-                        <input type="email" name="email" placeholder="Professional Email" required class="input-field mono text-xs">
-                        <input type="text" name="company" placeholder="Company" required class="input-field mono text-xs">
-                        <textarea name="message" placeholder="Interest" required class="input-field mono text-xs h-24"></textarea>
-                        <button type="submit" id="submit-btn" class="w-full py-3 bg-blue-500 text-white rounded-lg text-xs mono uppercase">
-                            Send
-                        </button>
-                    </form>
+    <h2>Example</h2>
 
-                    <div id="form-status" class="hidden mt-4 mono text-xs text-green-400 text-center">
-                        Request sent.
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-[#0a0f18] rounded-2xl p-6 border border-white/5">
-<pre class="text-xs text-blue-400/70 mono">
+    <div class="code">
 if (instruction_valid && constraints_ok) {
     execute();
 } else {
     block_execution();
 }
-</pre>
-            </div>
-
-        </div>
     </div>
-</section>
 
-<footer class="max-w-7xl mx-auto px-6 py-12 border-t border-white/5 text-center text-slate-500">
+    <h2>Integration</h2>
 
-    <p class="text-xs italic">© 2026 Equinibrium s.r.o.</p>
+    <div class="block">
+        <p>
+            Systems become OMWEI-enabled by integrating execution integrity IP into their compute stack.
+        </p>
 
-    <p class="text-[10px] mono uppercase mt-2">
-        OMWEI is a hardware execution integrity signal  
-        developed by Equinibrium // Patent Pending
-    </p>
+        <p>
+            Contact: <a href="mailto:stan@equinibrium.eu">stan@equinibrium.eu</a>
+        </p>
+    </div>
 
-</footer>
+    <footer>
+        © 2026 Equinibrium  
+        <br>
+        OMWEI is an execution integrity signal for hardware systems.
+    </footer>
 
-<script>
-const form = document.getElementById('contact-form');
-const status = document.getElementById('form-status');
-const submitBtn = document.getElementById('submit-btn');
-
-form.onsubmit = async (e) => {
-    e.preventDefault();
-    submitBtn.disabled = true;
-    submitBtn.innerText = "Sending...";
-
-    const data = new FormData(form);
-    const response = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-        form.style.display = 'none';
-        status.classList.remove('hidden');
-    } else {
-        alert("Error. Try again.");
-        submitBtn.disabled = false;
-        submitBtn.innerText = "Send";
-    }
-};
-</script>
+</div>
 
 </body>
 </html>
