@@ -28,7 +28,7 @@
 
         h2 {
             font-size: 20px;
-            margin-top: 50px;
+            margin-top: 60px;
             margin-bottom: 10px;
             color: white;
         }
@@ -68,6 +68,11 @@
             color: #9ca3af;
         }
 
+        .divider {
+            margin: 80px 0;
+            border-top: 1px solid #1f2937;
+        }
+
         footer {
             margin-top: 80px;
             font-size: 12px;
@@ -85,6 +90,7 @@
 
 <div class="container">
 
+    <!-- HERO -->
     <h1>OMWEI</h1>
     <div class="mono">Execution Integrity Signal</div>
 
@@ -94,6 +100,7 @@
 
     <div class="badge">Defined by Equinibrium</div>
 
+    <!-- DEFINITION -->
     <h2>Definition</h2>
 
     <div class="block">
@@ -108,6 +115,7 @@
         </ul>
     </div>
 
+    <!-- WHAT IT MEANS -->
     <h2>What It Means</h2>
 
     <div class="block">
@@ -122,6 +130,7 @@
         </ul>
     </div>
 
+    <!-- IMPLEMENTATION -->
     <h2>Implementation</h2>
 
     <div class="block">
@@ -136,6 +145,7 @@
         </ul>
     </div>
 
+    <!-- CODE -->
     <h2>Example</h2>
 
     <div class="code">
@@ -146,11 +156,95 @@ if (instruction_valid && constraints_ok) {
 }
     </div>
 
+    <!-- ===================== -->
+    <!-- SPEC SECTION -->
+    <!-- ===================== -->
+
+    <div class="divider"></div>
+
+    <h2>Architecture Specification (Draft v0.1)</h2>
+
+    <p>
+        OMWEI introduces a pre-execution validation model embedded directly into the processor pipeline.
+    </p>
+
+    <!-- PIPELINE -->
+    <div class="code">
+Fetch → SIGNIFY → Decode → Execute
+    </div>
+
+    <!-- PROBLEM -->
+    <h2>Problem</h2>
+
+    <div class="block">
+        <p>
+            Classical processors assume that all input data is valid. This assumption no longer holds in distributed and autonomous systems.
+        </p>
+
+        <p>
+            As a result, systems execute invalid or malicious inputs with full determinism.
+        </p>
+    </div>
+
+    <!-- MODEL -->
+    <h2>Model</h2>
+
+    <div class="block">
+        <p>
+            The SIGNIFY stage introduces deterministic validation before instruction decode.
+        </p>
+
+        <ul>
+            <li>Validation happens before execution</li>
+            <li>Invalid inputs are blocked in hardware</li>
+            <li>No reliance on probabilistic models</li>
+        </ul>
+    </div>
+
+    <!-- COMPONENTS -->
+    <h2>Core Components</h2>
+
+    <div class="block">
+        <p><strong>SLC (Semantic Logic Core)</strong><br>
+        Hardware validation unit enforcing constraints.</p>
+
+        <p><strong>32BSA (Semantic Atom)</strong><br>
+        Fixed-size structured execution input.</p>
+
+        <p><strong>AX Buffer</strong><br>
+        Memory boundary allowing only validated data.</p>
+    </div>
+
+    <!-- EXECUTION MODEL -->
+    <h2>Execution Model</h2>
+
+    <div class="block">
+        <ul>
+            <li>Input is acquired from external sources</li>
+            <li>Validated in SIGNIFY stage</li>
+            <li>Invalid inputs are blocked</li>
+            <li>Only validated data reaches execution</li>
+        </ul>
+    </div>
+
+    <!-- LIMITATIONS -->
+    <h2>Limitations</h2>
+
+    <div class="block">
+        <ul>
+            <li>Requires predefined constraints</li>
+            <li>Does not guarantee correctness of decisions</li>
+            <li>Adds hardware complexity</li>
+            <li>Depends on structured input (e.g. 32BSA)</li>
+        </ul>
+    </div>
+
+    <!-- INTEGRATION -->
     <h2>Integration</h2>
 
     <div class="block">
         <p>
-            Systems become OMWEI-enabled by integrating execution integrity IP into their compute stack.
+            OMWEI can be implemented as a co-processor or integrated IP block within existing architectures (RISC-V, ARM).
         </p>
 
         <p>
@@ -158,10 +252,13 @@ if (instruction_valid && constraints_ok) {
         </p>
     </div>
 
+    <!-- FOOTER -->
     <footer>
         © 2026 Equinibrium  
         <br>
         OMWEI is an execution integrity signal for hardware systems.
+        <br><br>
+        Draft Specification v0.1 — OMWEI Ecosystem
     </footer>
 
 </div>
