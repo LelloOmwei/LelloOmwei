@@ -1,177 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VDE | Execution Integrity Runtime</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background-color: #0b0f17;
-      color: #e6eaf2;
-      line-height: 1.6;
-    }
+</h2>
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 80px 24px;
-    }
+<p class="section-subtitle">
+          The platform is intended for infrastructure domains where resilience, low operational overhead, a
+          The platform is intended for infrastructure domains where resilience, low operational overhead, trusted telemetry, and distributed edge autonomy are mission-critical requirements.
+        </p>
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-      letter-spacing: -1px;
-    }
+        <div class="grid">
 
-    h2 {
-      font-size: 20px;
-      font-weight: 400;
-      color: #9aa4b2;
-      margin-bottom: 40px;
-    }
+          <div class="card">
+            <h3>Utility Telemetry</h3>
+            <p>
+              Distributed monitoring for water, energy, and remote utility infrastructure.
+            </p>
+          </div>
 
-    .badge {
-      display: inline-block;
-      padding: 6px 12px;
-      border: 1px solid #2a3446;
-      border-radius: 999px;
-      font-size: 12px;
-      color: #9aa4b2;
-      margin-bottom: 20px;
-    }
+          <div class="card">
+            <h3>Hydrology & Environment</h3>
+            <p>
+              SDI-12-based unattended sensing for hydrology, weather, and environmental monitoring.
+            </p>
+          </div>
 
-    .section {
-      margin-top: 50px;
-    }
+          <div class="card">
+            <h3>Remote Infrastructure</h3>
+            <p>
+              Solar-autonomous telemetry for pipelines, industrial compounds, substations, and remote assets.
+            </p>
+          </div>
 
-    .card {
-      background: #111827;
-      border: 1px solid #1f2937;
-      border-radius: 12px;
-      padding: 20px;
-      margin-top: 16px;
-    }
+          <div class="card">
+            <h3>Sovereign Edge Systems</h3>
+            <p>
+              Trusted distributed edge architectures for resilience-oriented critical infrastructure environments.
+            </p>
+          </div>
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
-      margin-top: 20px;
-    }
-
-    .highlight {
-      color: #7dd3fc;
-    }
-
-    code {
-      background: #0f172a;
-      padding: 2px 6px;
-      border-radius: 6px;
-      font-size: 13px;
-      color: #93c5fd;
-    }
-
-    .footer {
-      margin-top: 80px;
-      font-size: 12px;
-      color: #6b7280;
-      text-align: center;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="container">
-
-    <div class="badge">Execution Integrity Runtime for AI Systems</div>
-
-    <h1>VDE</h1>
-    <h2>We ensure AI systems execute exactly what they intend — across LLM pipelines, agent workflows, and distributed GPU infrastructure.</h2>
-
-    <div class="section">
-      <h3>Problem</h3>
-      <div class="card">
-        Modern AI systems are no longer single-model calls. They are distributed execution graphs.
-        <br/><br/>
-        Failures are often <span class="highlight">silent, semantic, and non-deterministic</span>:
-        <ul>
-          <li>Missing or skipped execution steps</li>
-          <li>Wrong tool invocation with correct output format</li>
-          <li>Duplicated or reordered actions</li>
-          <li>Invisible divergence between intent and execution</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="section">
-      <h3>Solution</h3>
-      <div class="card">
-        VDE is a runtime layer that validates execution correctness in real time.
-        <br/><br/>
-        It sits between orchestration and inference, reconstructing and verifying execution graphs across distributed AI systems.
-      </div>
-    </div>
-
-    <div class="section">
-      <h3>Core Capabilities</h3>
-
-      <div class="grid">
-        <div class="card">
-          <b>Intent vs Execution Validation</b>
-          <br/>Compares planned workflows with actual runtime behavior.
         </div>
 
-        <div class="card">
-          <b>Execution Drift Detection</b>
-          <br/>Identifies missing, reordered, or duplicated steps.
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+
+        <div class="quote">
+          <p>
+            “The future of industrial infrastructure will not be cloud-centric. It will be distributed, trusted, resilient, and edge-native.”
+          </p>
         </div>
 
-        <div class="card">
-          <b>Distributed Trace Reconstruction</b>
-          <br/>Rebuilds execution graphs across LLMs, tools, and APIs.
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+
+        <h2 class="section-title">
+          Strategic & Technical Discussions
+        </h2>
+
+        <p class="section-subtitle">
+          OMWEI is currently exploring architectural alignment and technical collaboration opportunities around distributed edge telemetry, trusted infrastructure, and next-generation sovereign edge systems.
+        </p>
+
+        <div class="hero-actions">
+          <a href="mailto:contact@omwei.tech" class="btn btn-primary">contact@omwei.tech</a>
         </div>
 
-        <div class="card">
-          <b>Integrity Scoring</b>
-          <br/>Assigns a correctness score to every AI workflow.
-        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="section">
-      <h3>Position in Stack</h3>
-      <div class="card">
-        <code>AI Apps (LangChain / Agents)</code><br/>
-        ↓<br/>
-        <code>VDE Execution Integrity Runtime</code><br/>
-        ↓<br/>
-        <code>Inference & GPU Infrastructure</code><br/>
-        ↓<br/>
-        <code>Hardware (GPUs / DPUs)</code>
-      </div>
-    </div>
+  </main>
 
-    <div class="section">
-      <h3>Target Systems</h3>
-      <div class="card">
-        LLM inference platforms, agentic AI systems, distributed GPU pipelines, and autonomous infrastructure where correctness and cost efficiency are critical.
-      </div>
+  <footer>
+    <div class="container">
+      © 2026 OMWEI — Trusted Distributed Edge Infrastructure
     </div>
+  </footer>
 
-    <div class="section">
-      <h3>NVIDIA Alignment</h3>
-      <div class="card">
-        VDE is designed for GPU-accelerated AI systems and integrates with inference stacks and edge-to-cloud architectures.
-        We plan to leverage NVIDIA Tensor Cores and BlueField DPUs to capture execution signals in real time across distributed AI workloads.
-      </div>
-    </div>
-
-    <div class="footer">
-      © Equinibrium — Execution Integrity Runtime (VDE)
-    </div>
-
-  </div>
 </body>
 </html>
