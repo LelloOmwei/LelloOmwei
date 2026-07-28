@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>OMWEI Tech — Technical Research for Trustworthy Autonomous Systems</title>
+<title>OMWEI Tech — Technical Foundations for Trustworthy Autonomous Systems</title>
 
-<meta name="description" content="OMWEI Tech explores technical foundations, architectures, experiments, and open research artifacts for trustworthy autonomous systems." />
+<meta name="description" content="OMWEI Tech explores technical foundations, architectures, experiments, and open artifacts for trustworthy autonomous systems." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,194 +23,188 @@
 
 body {
     font-family:'Inter',sans-serif;
-    background:#06070a;
-    color:#e6e9ef;
+    background:#ffffff;
+    color:#111827;
     line-height:1.7;
 }
+
 
 a {
     color:inherit;
     text-decoration:none;
 }
 
+
 .container {
     width:100%;
-    max-width:1180px;
+    max-width:1100px;
     margin:auto;
-    padding:0 24px;
+    padding:0 28px;
 }
 
 
+/* HEADER */
+
 header {
-    position:sticky;
-    top:0;
-    background:rgba(6,7,10,.85);
-    backdrop-filter:blur(16px);
-    border-bottom:1px solid rgba(255,255,255,.06);
-    z-index:10;
+
+    border-bottom:1px solid #e5e7eb;
+    background:white;
+
 }
 
 
 nav {
+
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:22px 0;
+    padding:24px 0;
+
 }
 
 
 .logo {
-    font-size:1.1rem;
+
     font-weight:700;
     letter-spacing:.16em;
+    font-size:1.05rem;
+
 }
 
 
 .nav-links {
+
     display:flex;
-    gap:28px;
-    color:#9ea5b3;
+    gap:30px;
+    color:#6b7280;
+    font-size:.95rem;
+
 }
 
+
+/* HERO */
 
 .hero {
-    padding:140px 0 120px;
-    position:relative;
+
+    padding:120px 0 100px;
+
 }
 
 
-.hero:before {
-    content:"";
-    position:absolute;
-    width:600px;
-    height:600px;
-    right:-150px;
-    top:-150px;
-    background:radial-gradient(circle,
-    rgba(80,120,255,.18),
-    transparent 70%);
-}
+.label {
 
-
-.eyebrow {
-
-display:inline-block;
-padding:8px 14px;
-border-radius:999px;
-border:1px solid rgba(255,255,255,.12);
-color:#9fb6ff;
-font-size:.82rem;
-letter-spacing:.08em;
-text-transform:uppercase;
-margin-bottom:28px;
+    display:inline-block;
+    color:#2563eb;
+    font-size:.8rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    margin-bottom:28px;
 
 }
 
 
 h1 {
 
-font-size:clamp(3rem,7vw,5.5rem);
-line-height:1.05;
-letter-spacing:-.04em;
-max-width:1000px;
-margin-bottom:30px;
+    font-size:clamp(2.8rem,6vw,4.8rem);
+    line-height:1.1;
+    letter-spacing:-.04em;
+    max-width:900px;
+    margin-bottom:32px;
 
 }
 
 
 .hero p {
 
-max-width:780px;
-font-size:1.15rem;
-color:#a7afbf;
+    max-width:760px;
+    color:#4b5563;
+    font-size:1.2rem;
 
 }
 
 
-.buttons {
+.actions {
 
-display:flex;
-gap:16px;
-margin-top:40px;
-flex-wrap:wrap;
+    margin-top:42px;
+    display:flex;
+    gap:16px;
 
 }
 
 
-.btn {
+.button {
 
-padding:14px 24px;
-border-radius:12px;
-border:1px solid rgba(255,255,255,.1);
-font-weight:600;
+    padding:13px 22px;
+    border-radius:10px;
+    border:1px solid #d1d5db;
+    font-weight:500;
 
 }
 
 
 .primary {
 
-background:linear-gradient(135deg,#3a6dff,#6d8dff);
+    background:#111827;
+    color:white;
+    border-color:#111827;
 
 }
 
 
-.secondary {
 
-background:rgba(255,255,255,.03);
-
-}
-
-
+/* SECTIONS */
 
 section {
 
-padding:100px 0;
-border-top:1px solid rgba(255,255,255,.05);
+    padding:90px 0;
+    border-top:1px solid #e5e7eb;
 
 }
 
 
 h2 {
 
-font-size:2.4rem;
-letter-spacing:-.03em;
-margin-bottom:20px;
+    font-size:2.2rem;
+    letter-spacing:-.03em;
+    margin-bottom:18px;
 
 }
 
 
 .subtitle {
 
-max-width:760px;
-color:#9ca5b5;
-margin-bottom:55px;
+    color:#6b7280;
+    max-width:760px;
+    margin-bottom:50px;
 
 }
+
 
 
 .grid {
 
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:28px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:24px;
 
 }
 
 
+
 .card {
 
-padding:32px;
-border-radius:24px;
-background:rgba(255,255,255,.025);
-border:1px solid rgba(255,255,255,.08);
+    padding:30px;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    background:#ffffff;
 
 }
 
 
 .card h3 {
 
-margin-bottom:15px;
-font-size:1.3rem;
+    margin-bottom:14px;
+    font-size:1.25rem;
 
 }
 
@@ -218,61 +212,66 @@ font-size:1.3rem;
 .card p,
 .card li {
 
-color:#a4acbc;
+    color:#4b5563;
 
 }
 
 
 .card ul {
 
-padding-left:18px;
-margin-top:12px;
+    margin-top:14px;
+    padding-left:18px;
 
 }
 
 
 
-.quote {
+/* PRINCIPLES */
 
-padding:60px;
-border-radius:30px;
-text-align:center;
-background:linear-gradient(
-135deg,
-rgba(58,109,255,.12),
-rgba(255,255,255,.03)
-);
+.principle {
+
+    padding:28px 0;
+    border-bottom:1px solid #e5e7eb;
 
 }
 
 
-.quote p {
+.principle h3 {
 
-font-size:clamp(1.5rem,3vw,2.4rem);
-line-height:1.35;
+    margin-bottom:8px;
 
 }
 
+
+.principle p {
+
+    color:#4b5563;
+
+}
+
+
+/* FOOTER */
 
 footer {
 
-padding:60px 0;
-text-align:center;
-color:#7f8796;
-border-top:1px solid rgba(255,255,255,.05);
+    padding:50px 0;
+    border-top:1px solid #e5e7eb;
+    text-align:center;
+    color:#6b7280;
+    font-size:.9rem;
 
 }
 
 
 
-@media(max-width:768px){
+@media(max-width:700px){
 
 .nav-links {
-display:none;
+    display:none;
 }
 
 .hero {
-padding-top:90px;
+    padding-top:80px;
 }
 
 }
@@ -291,14 +290,20 @@ padding-top:90px;
 
 <nav>
 
-<div class="logo">OMWEI TECH</div>
+<div class="logo">
+OMWEI TECH
+</div>
+
 
 <div class="nav-links">
+
 <a href="#research">Research</a>
-<a href="#architecture">Architectures</a>
+<a href="#architectures">Architectures</a>
 <a href="#artifacts">Artifacts</a>
 <a href="#community">Community</a>
+
 </div>
+
 
 </nav>
 
@@ -311,35 +316,34 @@ padding-top:90px;
 <main>
 
 
-
 <section class="hero">
 
 <div class="container">
 
 
-<div class="eyebrow">
-Technical Research Platform
+<div class="label">
+Technical Research Layer
 </div>
 
 
 <h1>
-Building technical foundations for trustworthy autonomous systems.
+Technical foundations for trustworthy autonomous systems.
 </h1>
 
 
 <p>
-OMWEI Tech explores architectures, mechanisms, experiments, and open research artifacts required for autonomous systems to operate with trust, accountability, and justified authority.
+OMWEI Tech explores architectures, mechanisms, experiments, and open technical artifacts required for autonomous systems to operate with trust, accountability, and justified authority.
 </p>
 
 
-<div class="buttons">
+<div class="actions">
 
-<a class="btn primary" href="#research">
+<a class="button primary" href="#research">
 Explore Research
 </a>
 
-<a class="btn secondary" href="https://github.com">
-Open Research
+<a class="button" href="https://github.com">
+GitHub
 </a>
 
 </div>
@@ -364,8 +368,9 @@ Research Areas
 
 
 <p class="subtitle">
-OMWEI Tech provides an open technical space for exploring the foundations of trustworthy autonomy.
+OMWEI Tech provides an open technical environment for exploring the foundations required for trustworthy autonomy.
 </p>
+
 
 
 <div class="grid">
@@ -374,54 +379,11 @@ OMWEI Tech provides an open technical space for exploring the foundations of tru
 <div class="card">
 
 <h3>
-Autonomous System Architecture
+Agent Identity & Integrity
 </h3>
 
 <p>
-Exploring architectural principles required for autonomous systems that can operate reliably in complex environments.
-</p>
-
-<ul>
-<li>System boundaries</li>
-<li>Autonomy models</li>
-<li>Trust relationships</li>
-<li>System composition</li>
-</ul>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>
-Execution & Action Governance
-</h3>
-
-<p>
-Exploring how autonomous decisions become authorized effects in the real world.
-</p>
-
-<ul>
-<li>Execution Authority</li>
-<li>Authorization mechanisms</li>
-<li>Commit semantics</li>
-<li>State transition integrity</li>
-</ul>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h3>
-Agent Integrity & Identity
-</h3>
-
-<p>
-Exploring how autonomous entities can be identified, verified, and evaluated.
+Understanding what an autonomous system is, what it contains, and whether its operational state can be trusted.
 </p>
 
 <ul>
@@ -438,22 +400,42 @@ Exploring how autonomous entities can be identified, verified, and evaluated.
 <div class="card">
 
 <h3>
-Embodied Autonomy
+Execution Governance
 </h3>
 
 <p>
-Exploring trustworthy autonomy in systems interacting with physical environments.
+Exploring how autonomous decisions become authorized effects in the real world.
 </p>
 
 <ul>
-<li>Robotics</li>
-<li>Industrial autonomy</li>
-<li>Physical AI</li>
-<li>Safety-critical systems</li>
+<li>Execution Authority</li>
+<li>Authorization boundaries</li>
+<li>Commit semantics</li>
+<li>State transition integrity</li>
 </ul>
 
 </div>
 
+
+
+<div class="card">
+
+<h3>
+Embodied Autonomy
+</h3>
+
+<p>
+Researching trustworthy autonomy in systems interacting with physical environments.
+</p>
+
+<ul>
+<li>Robotics</li>
+<li>Industrial systems</li>
+<li>Autonomous vehicles</li>
+<li>Safety-critical applications</li>
+</ul>
+
+</div>
 
 
 
@@ -464,20 +446,22 @@ Assurance & Evaluation
 </h3>
 
 <p>
-Developing methods to measure, compare, and demonstrate trustworthiness.
+Developing methods to evaluate and demonstrate trustworthy autonomous behaviour.
 </p>
 
 <ul>
-<li>Evaluation methods</li>
 <li>Evidence frameworks</li>
-<li>Verification approaches</li>
-<li>Assurance models</li>
+<li>Verification methods</li>
+<li>Evaluation methodologies</li>
+<li>Trust models</li>
 </ul>
 
 </div>
 
 
+
 </div>
+
 
 </div>
 
@@ -487,57 +471,40 @@ Developing methods to measure, compare, and demonstrate trustworthiness.
 
 
 
-<section id="architecture">
+<section id="architectures">
 
 <div class="container">
 
 
 <h2>
-Technical Foundations
+Technical Principles
 </h2>
 
 
 <p class="subtitle">
-OMWEI Tech focuses on functional properties and measurable guarantees rather than prescribing a single implementation approach.
+OMWEI Tech focuses on functional properties and measurable guarantees rather than prescribing a single technological approach.
 </p>
 
 
 
-<div class="grid">
-
-
-<div class="card">
+<div class="principle">
 
 <h3>
-Functional Requirements
+Functional over technological
 </h3>
 
 <p>
-Trustworthy autonomy should be defined by required properties and guarantees, not by a specific technology.
+Trustworthy autonomy should be defined by required properties and guarantees, not by a specific implementation technology.
 </p>
 
 </div>
 
 
 
-<div class="card">
+<div class="principle">
 
 <h3>
-Separation of Intelligence and Authority
-</h3>
-
-<p>
-The ability to make decisions and the authority to create real-world effects are distinct architectural concerns.
-</p>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>
-Evidence-Based Engineering
+Evidence over assumptions
 </h3>
 
 <p>
@@ -547,13 +514,23 @@ Technical claims should be supported by reproducible experiments and verifiable 
 </div>
 
 
+
+<div class="principle">
+
+<h3>
+Separation of intelligence and authority
+</h3>
+
+<p>
+The ability to make decisions and the authority to create real-world effects are distinct architectural concerns.
+</p>
+
 </div>
 
 
 </div>
 
 </section>
-
 
 
 
@@ -565,12 +542,12 @@ Technical claims should be supported by reproducible experiments and verifiable 
 
 
 <h2>
-Research Artifacts
+Open Technical Artifacts
 </h2>
 
 
 <p class="subtitle">
-OMWEI Tech supports open technical contributions that advance the understanding of trustworthy autonomous systems.
+OMWEI Tech supports open contributions that advance research into trustworthy autonomous systems.
 </p>
 
 
@@ -579,33 +556,45 @@ OMWEI Tech supports open technical contributions that advance the understanding 
 
 
 <div class="card">
+
 <h3>
 Reference Architectures
 </h3>
+
 <p>
-Conceptual and technical architectures for evaluating trustworthy autonomy.
+Architectural models and technical frameworks for exploring trustworthy autonomy.
 </p>
+
 </div>
 
 
+
 <div class="card">
+
 <h3>
 Experimental Frameworks
 </h3>
+
 <p>
-Research environments and methodologies for testing architectural assumptions.
+Reproducible environments for evaluating assumptions and mechanisms.
 </p>
+
 </div>
+
 
 
 <div class="card">
+
 <h3>
 Open Implementations
 </h3>
+
 <p>
-Prototype implementations and reproducible technical demonstrations.
+Research prototypes, demonstrations, and community-developed tools.
 </p>
+
 </div>
+
 
 
 </div>
@@ -614,7 +603,6 @@ Prototype implementations and reproducible technical demonstrations.
 </div>
 
 </section>
-
 
 
 
@@ -625,10 +613,20 @@ Prototype implementations and reproducible technical demonstrations.
 <div class="container">
 
 
-<div class="quote">
+<h2>
+Community Contributions
+</h2>
+
+
+<p class="subtitle">
+OMWEI Tech is an open technical layer connecting researchers, engineers, organizations, and practitioners working on trustworthy autonomy.
+</p>
+
+
+<div class="card">
 
 <p>
-OMWEI Tech is an open technical layer where researchers, engineers, and organizations collaborate on the foundations of trustworthy autonomy.
+Contributions may include research papers, architectures, prototypes, benchmarks, evaluation methods, and open-source implementations.
 </p>
 
 </div>
@@ -637,7 +635,6 @@ OMWEI Tech is an open technical layer where researchers, engineers, and organiza
 </div>
 
 </section>
-
 
 
 
@@ -649,7 +646,11 @@ OMWEI Tech is an open technical layer where researchers, engineers, and organiza
 
 <div class="container">
 
-© 2026 OMWEI Tech — Technical Research Platform for Trustworthy Autonomous Systems
+OMWEI Tech — Technical Research Layer of the OMWEI Initiative
+
+<br><br>
+
+© 2026 OMWEI
 
 </div>
 
