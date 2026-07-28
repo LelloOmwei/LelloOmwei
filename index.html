@@ -1,512 +1,661 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OMWEI — Trusted Distributed Edge Infrastructure</title>
-  <meta name="description" content="OMWEI develops trusted distributed edge infrastructure for critical telemetry, industrial edge systems, and sovereign edge environments." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<title>OMWEI Tech — Technical Research for Trustworthy Autonomous Systems</title>
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #06070a;
-      color: #e6e9ef;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+<meta name="description" content="OMWEI Tech explores technical foundations, architectures, experiments, and open research artifacts for trustworthy autonomous systems." />
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    .container {
-      width: 100%;
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
 
-    header {
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(16px);
-      background: rgba(6, 7, 10, 0.82);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      z-index: 100;
-    }
+<style>
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 0;
-    }
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    .logo {
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      color: #ffffff;
-    }
+body {
+    font-family:'Inter',sans-serif;
+    background:#06070a;
+    color:#e6e9ef;
+    line-height:1.7;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 28px;
-      color: #9ea5b3;
-      font-size: 0.95rem;
-    }
+a {
+    color:inherit;
+    text-decoration:none;
+}
 
-    .hero {
-      padding: 140px 0 120px;
-      position: relative;
-    }
+.container {
+    width:100%;
+    max-width:1180px;
+    margin:auto;
+    padding:0 24px;
+}
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(60,100,255,0.18) 0%, rgba(0,0,0,0) 70%);
-      top: -150px;
-      right: -120px;
-      z-index: -1;
-    }
 
-    .eyebrow {
-      display: inline-block;
-      padding: 8px 14px;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 999px;
-      color: #9fb6ff;
-      font-size: 0.82rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-      background: rgba(255,255,255,0.03);
-    }
+header {
+    position:sticky;
+    top:0;
+    background:rgba(6,7,10,.85);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(255,255,255,.06);
+    z-index:10;
+}
 
-    h1 {
-      font-size: clamp(3rem, 7vw, 5.6rem);
-      line-height: 1.05;
-      font-weight: 700;
-      max-width: 980px;
-      margin-bottom: 28px;
-      letter-spacing: -0.04em;
-    }
 
-    .hero p {
-      max-width: 760px;
-      color: #a7afbf;
-      font-size: 1.15rem;
-      margin-bottom: 42px;
-    }
+nav {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 0;
+}
 
-    .hero-actions {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 24px;
-      border-radius: 12px;
-      font-weight: 600;
-      transition: all 0.25s ease;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
+.logo {
+    font-size:1.1rem;
+    font-weight:700;
+    letter-spacing:.16em;
+}
 
-    .btn-primary {
-      background: linear-gradient(135deg, #3a6dff, #6d8dff);
-      color: white;
-    }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(58,109,255,0.25);
-    }
+.nav-links {
+    display:flex;
+    gap:28px;
+    color:#9ea5b3;
+}
 
-    .btn-secondary {
-      background: rgba(255,255,255,0.03);
-      color: #dce1ea;
-    }
 
-    section {
-      padding: 100px 0;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
+.hero {
+    padding:140px 0 120px;
+    position:relative;
+}
 
-    .section-title {
-      font-size: 2.4rem;
-      margin-bottom: 20px;
-      letter-spacing: -0.03em;
-    }
 
-    .section-subtitle {
-      color: #9ca5b5;
-      max-width: 760px;
-      margin-bottom: 56px;
-      font-size: 1.05rem;
-    }
+.hero:before {
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    right:-150px;
+    top:-150px;
+    background:radial-gradient(circle,
+    rgba(80,120,255,.18),
+    transparent 70%);
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
-    }
 
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 24px;
-      padding: 30px;
-      transition: all 0.25s ease;
-    }
+.eyebrow {
 
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255,255,255,0.14);
-    }
+display:inline-block;
+padding:8px 14px;
+border-radius:999px;
+border:1px solid rgba(255,255,255,.12);
+color:#9fb6ff;
+font-size:.82rem;
+letter-spacing:.08em;
+text-transform:uppercase;
+margin-bottom:28px;
 
-    .card h3 {
-      margin-bottom: 16px;
-      font-size: 1.25rem;
-      color: #ffffff;
-    }
+}
 
-    .card p,
-    .card ul {
-      color: #9ea5b3;
-      font-size: 0.97rem;
-    }
 
-    .card ul {
-      padding-left: 18px;
-      margin-top: 12px;
-    }
+h1 {
 
-    .architecture {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
-    }
+font-size:clamp(3rem,7vw,5.5rem);
+line-height:1.05;
+letter-spacing:-.04em;
+max-width:1000px;
+margin-bottom:30px;
 
-    .architecture-block {
-      padding: 34px;
-      border-radius: 26px;
-      background: rgba(255,255,255,0.025);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
+}
 
-    .architecture-block span {
-      display: inline-block;
-      margin-bottom: 18px;
-      color: #7da0ff;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
 
-    .architecture-block h3 {
-      margin-bottom: 18px;
-      font-size: 1.45rem;
-    }
+.hero p {
 
-    .architecture-block ul {
-      padding-left: 18px;
-      color: #a4acbc;
-    }
+max-width:780px;
+font-size:1.15rem;
+color:#a7afbf;
 
-    .quote {
-      padding: 60px;
-      border-radius: 30px;
-      background: linear-gradient(135deg, rgba(58,109,255,0.12), rgba(255,255,255,0.03));
-      border: 1px solid rgba(255,255,255,0.08);
-      text-align: center;
-    }
+}
 
-    .quote p {
-      font-size: clamp(1.5rem, 3vw, 2.4rem);
-      line-height: 1.35;
-      letter-spacing: -0.03em;
-      max-width: 900px;
-      margin: 0 auto;
-    }
 
-    footer {
-      padding: 60px 0;
-      text-align: center;
-      color: #7f8796;
-      font-size: 0.92rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
+.buttons {
 
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
+display:flex;
+gap:16px;
+margin-top:40px;
+flex-wrap:wrap;
 
-      .hero {
-        padding-top: 100px;
-      }
+}
 
-      .quote {
-        padding: 40px 24px;
-      }
-    }
-  </style>
+
+.btn {
+
+padding:14px 24px;
+border-radius:12px;
+border:1px solid rgba(255,255,255,.1);
+font-weight:600;
+
+}
+
+
+.primary {
+
+background:linear-gradient(135deg,#3a6dff,#6d8dff);
+
+}
+
+
+.secondary {
+
+background:rgba(255,255,255,.03);
+
+}
+
+
+
+section {
+
+padding:100px 0;
+border-top:1px solid rgba(255,255,255,.05);
+
+}
+
+
+h2 {
+
+font-size:2.4rem;
+letter-spacing:-.03em;
+margin-bottom:20px;
+
+}
+
+
+.subtitle {
+
+max-width:760px;
+color:#9ca5b5;
+margin-bottom:55px;
+
+}
+
+
+.grid {
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:28px;
+
+}
+
+
+.card {
+
+padding:32px;
+border-radius:24px;
+background:rgba(255,255,255,.025);
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+
+.card h3 {
+
+margin-bottom:15px;
+font-size:1.3rem;
+
+}
+
+
+.card p,
+.card li {
+
+color:#a4acbc;
+
+}
+
+
+.card ul {
+
+padding-left:18px;
+margin-top:12px;
+
+}
+
+
+
+.quote {
+
+padding:60px;
+border-radius:30px;
+text-align:center;
+background:linear-gradient(
+135deg,
+rgba(58,109,255,.12),
+rgba(255,255,255,.03)
+);
+
+}
+
+
+.quote p {
+
+font-size:clamp(1.5rem,3vw,2.4rem);
+line-height:1.35;
+
+}
+
+
+footer {
+
+padding:60px 0;
+text-align:center;
+color:#7f8796;
+border-top:1px solid rgba(255,255,255,.05);
+
+}
+
+
+
+@media(max-width:768px){
+
+.nav-links {
+display:none;
+}
+
+.hero {
+padding-top:90px;
+}
+
+}
+
+</style>
+
 </head>
+
+
 <body>
 
-  <header>
-    <div class="container">
-      <nav>
-        <div class="logo">OMWEI</div>
 
-        <div class="nav-links">
-          <a href="#platform">Platform</a>
-          <a href="#architecture">Architecture</a>
-          <a href="#domains">Domains</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
-    </div>
-  </header>
+<header>
 
-  <main>
+<div class="container">
 
-    <section class="hero">
-      <div class="container">
+<nav>
 
-        <div class="eyebrow">
-          Trusted Distributed Edge Infrastructure
-        </div>
+<div class="logo">OMWEI TECH</div>
 
-        <h1>
-          Secure sovereign edge systems for critical telemetry and distributed infrastructure.
-        </h1>
+<div class="nav-links">
+<a href="#research">Research</a>
+<a href="#architecture">Architectures</a>
+<a href="#artifacts">Artifacts</a>
+<a href="#community">Community</a>
+</div>
 
-        <p>
-          OMWEI develops next-generation industrial edge telemetry architecture combining rugged field infrastructure, trusted edge identity, distributed telemetry fabrics, and resilient edge-native communication models for unattended critical environments.
-        </p>
+</nav>
 
-        <div class="hero-actions">
-          <a href="#architecture" class="btn btn-primary">Explore Architecture</a>
-          <a href="mailto:contact@omwei.tech" class="btn btn-secondary">Contact</a>
-        </div>
+</div>
 
-      </div>
-    </section>
+</header>
 
-    <section id="platform">
-      <div class="container">
 
-        <h2 class="section-title">
-          Platform Overview
-        </h2>
 
-        <p class="section-subtitle">
-          OMWEI bridges trusted compute foundations with real-world distributed edge infrastructure. The platform is designed for harsh, intermittently-connected, and security-sensitive environments where traditional cloud-centric IoT architectures become operationally inefficient.
-        </p>
+<main>
 
-        <div class="grid">
 
-          <div class="card">
-            <h3>Rugged Field Nodes</h3>
-            <p>
-              Solar-autonomous low-power telemetry nodes for unattended deployment in environmental, utility, and remote infrastructure environments.
-            </p>
-            <ul>
-              <li>LoRa / BLE / 802.15.4</li>
-              <li>SDI-12 + RS485</li>
-              <li>GNSS integration</li>
-              <li>Secure Element</li>
-              <li>IP67 industrial design</li>
-            </ul>
-          </div>
 
-          <div class="card">
-            <h3>Industrial Edge Gateways</h3>
-            <p>
-              Modular edge compute gateways for local orchestration, protocol bridging, telemetry aggregation, and resilient edge processing.
-            </p>
-            <ul>
-              <li>ARM Cortex-A class compute</li>
-              <li>Industrial DIN-rail deployment</li>
-              <li>RS485 / Ethernet / USB</li>
-              <li>Expandable industrial I/O</li>
-              <li>Edge-native telemetry routing</li>
-            </ul>
-          </div>
+<section class="hero">
 
-          <div class="card">
-            <h3>Distributed Telemetry Fabric</h3>
-            <p>
-              Evolution toward a Zenoh-native distributed telemetry model optimized for intermittently-connected infrastructure and constrained edge environments.
-            </p>
-            <ul>
-              <li>Semantic compact telemetry</li>
-              <li>Low-overhead communication</li>
-              <li>Distributed edge-native routing</li>
-              <li>Resilient mesh-oriented architectures</li>
-              <li>Future PQC-ready integrity concepts</li>
-            </ul>
-          </div>
+<div class="container">
 
-        </div>
 
-      </div>
-    </section>
+<div class="eyebrow">
+Technical Research Platform
+</div>
 
-    <section id="architecture">
-      <div class="container">
 
-        <h2 class="section-title">
-          Distributed Edge Architecture
-        </h2>
+<h1>
+Building technical foundations for trustworthy autonomous systems.
+</h1>
 
-        <p class="section-subtitle">
-          The OMWEI architecture is designed as a layered trusted edge infrastructure stack spanning field sensing, distributed telemetry transport, local orchestration, and future semantic integrity propagation.
-        </p>
 
-        <div class="architecture">
+<p>
+OMWEI Tech explores architectures, mechanisms, experiments, and open research artifacts required for autonomous systems to operate with trust, accountability, and justified authority.
+</p>
 
-          <div class="architecture-block">
-            <span>Layer 01</span>
-            <h3>Field Infrastructure</h3>
-            <ul>
-              <li>Ultra-low-power telemetry nodes</li>
-              <li>Hybrid wireless communication</li>
-              <li>Harsh-environment deployment</li>
-              <li>Intermittent connectivity resilience</li>
-              <li>Trusted hardware identity</li>
-            </ul>
-          </div>
 
-          <div class="architecture-block">
-            <span>Layer 02</span>
-            <h3>Edge Coordination</h3>
-            <ul>
-              <li>Distributed telemetry aggregation</li>
-              <li>Industrial protocol interoperability</li>
-              <li>Local processing and autonomy</li>
-              <li>Edge-native orchestration</li>
-              <li>Semantic telemetry routing</li>
-            </ul>
-          </div>
+<div class="buttons">
 
-          <div class="architecture-block">
-            <span>Layer 03</span>
-            <h3>Trusted Telemetry Fabric</h3>
-            <ul>
-              <li>Zenoh-native distributed data space</li>
-              <li>Semantic compact telemetry models</li>
-              <li>Future trusted integrity propagation</li>
-              <li>PQC-oriented architectural roadmap</li>
-              <li>Sovereign edge infrastructure alignment</li>
-            </ul>
-          </div>
+<a class="btn primary" href="#research">
+Explore Research
+</a>
 
-        </div>
+<a class="btn secondary" href="https://github.com">
+Open Research
+</a>
 
-      </div>
-    </section>
+</div>
 
-    <section id="domains">
-      <div class="container">
 
-        <h2 class="section-title">
-          Reference Deployment Domains
-        </h2>
+</div>
 
-        <p class="section-subtitle">
-          The platform is intended for infrastructure domains where resilience, low operational overhead, trusted telemetry, and distributed edge autonomy are mission-critical requirements.
-        </p>
+</section>
 
-        <div class="grid">
 
-          <div class="card">
-            <h3>Utility Telemetry</h3>
-            <p>
-              Distributed monitoring for water, energy, and remote utility infrastructure.
-            </p>
-          </div>
 
-          <div class="card">
-            <h3>Hydrology & Environment</h3>
-            <p>
-              SDI-12-based unattended sensing for hydrology, weather, and environmental monitoring.
-            </p>
-          </div>
 
-          <div class="card">
-            <h3>Remote Infrastructure</h3>
-            <p>
-              Solar-autonomous telemetry for pipelines, industrial compounds, substations, and remote assets.
-            </p>
-          </div>
 
-          <div class="card">
-            <h3>Sovereign Edge Systems</h3>
-            <p>
-              Trusted distributed edge architectures for resilience-oriented critical infrastructure environments.
-            </p>
-          </div>
+<section id="research">
 
-        </div>
+<div class="container">
 
-      </div>
-    </section>
 
-    <section>
-      <div class="container">
+<h2>
+Research Areas
+</h2>
 
-        <div class="quote">
-          <p>
-            “The future of industrial infrastructure will not be cloud-centric. It will be distributed, trusted, resilient, and edge-native.”
-          </p>
-        </div>
 
-      </div>
-    </section>
+<p class="subtitle">
+OMWEI Tech provides an open technical space for exploring the foundations of trustworthy autonomy.
+</p>
 
-    <section id="contact">
-      <div class="container">
 
-        <h2 class="section-title">
-          Strategic & Technical Discussions
-        </h2>
+<div class="grid">
 
-        <p class="section-subtitle">
-          OMWEI is currently exploring architectural alignment and technical collaboration opportunities around distributed edge telemetry, trusted infrastructure, and next-generation sovereign edge systems.
-        </p>
 
-        <div class="hero-actions">
-          <a href="mailto:contact@omwei.tech" class="btn btn-primary">contact@omwei.tech</a>
-        </div>
+<div class="card">
 
-      </div>
-    </section>
+<h3>
+Autonomous System Architecture
+</h3>
 
-  </main>
+<p>
+Exploring architectural principles required for autonomous systems that can operate reliably in complex environments.
+</p>
 
-  <footer>
-    <div class="container">
-      © 2026 OMWEI — Trusted Distributed Edge Infrastructure
-    </div>
-  </footer>
+<ul>
+<li>System boundaries</li>
+<li>Autonomy models</li>
+<li>Trust relationships</li>
+<li>System composition</li>
+</ul>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+Execution & Action Governance
+</h3>
+
+<p>
+Exploring how autonomous decisions become authorized effects in the real world.
+</p>
+
+<ul>
+<li>Execution Authority</li>
+<li>Authorization mechanisms</li>
+<li>Commit semantics</li>
+<li>State transition integrity</li>
+</ul>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+Agent Integrity & Identity
+</h3>
+
+<p>
+Exploring how autonomous entities can be identified, verified, and evaluated.
+</p>
+
+<ul>
+<li>Agent identity</li>
+<li>Provenance</li>
+<li>Attestation</li>
+<li>Runtime integrity</li>
+</ul>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+Embodied Autonomy
+</h3>
+
+<p>
+Exploring trustworthy autonomy in systems interacting with physical environments.
+</p>
+
+<ul>
+<li>Robotics</li>
+<li>Industrial autonomy</li>
+<li>Physical AI</li>
+<li>Safety-critical systems</li>
+</ul>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+Assurance & Evaluation
+</h3>
+
+<p>
+Developing methods to measure, compare, and demonstrate trustworthiness.
+</p>
+
+<ul>
+<li>Evaluation methods</li>
+<li>Evidence frameworks</li>
+<li>Verification approaches</li>
+<li>Assurance models</li>
+</ul>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+
+
+<section id="architecture">
+
+<div class="container">
+
+
+<h2>
+Technical Foundations
+</h2>
+
+
+<p class="subtitle">
+OMWEI Tech focuses on functional properties and measurable guarantees rather than prescribing a single implementation approach.
+</p>
+
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<h3>
+Functional Requirements
+</h3>
+
+<p>
+Trustworthy autonomy should be defined by required properties and guarantees, not by a specific technology.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+Separation of Intelligence and Authority
+</h3>
+
+<p>
+The ability to make decisions and the authority to create real-world effects are distinct architectural concerns.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+Evidence-Based Engineering
+</h3>
+
+<p>
+Technical claims should be supported by reproducible experiments and verifiable evidence.
+</p>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+<section id="artifacts">
+
+<div class="container">
+
+
+<h2>
+Research Artifacts
+</h2>
+
+
+<p class="subtitle">
+OMWEI Tech supports open technical contributions that advance the understanding of trustworthy autonomous systems.
+</p>
+
+
+
+<div class="grid">
+
+
+<div class="card">
+<h3>
+Reference Architectures
+</h3>
+<p>
+Conceptual and technical architectures for evaluating trustworthy autonomy.
+</p>
+</div>
+
+
+<div class="card">
+<h3>
+Experimental Frameworks
+</h3>
+<p>
+Research environments and methodologies for testing architectural assumptions.
+</p>
+</div>
+
+
+<div class="card">
+<h3>
+Open Implementations
+</h3>
+<p>
+Prototype implementations and reproducible technical demonstrations.
+</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+<section id="community">
+
+<div class="container">
+
+
+<div class="quote">
+
+<p>
+OMWEI Tech is an open technical layer where researchers, engineers, and organizations collaborate on the foundations of trustworthy autonomy.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+</main>
+
+
+
+<footer>
+
+<div class="container">
+
+© 2026 OMWEI Tech — Technical Research Platform for Trustworthy Autonomous Systems
+
+</div>
+
+</footer>
+
+
 
 </body>
 </html>
